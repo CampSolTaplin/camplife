@@ -1,0 +1,36 @@
+---
+const weeks = [
+  { em: '🏴‍☠️', wk: 'Week 1 · Jun 8–14',    cls: 'c1',     title: 'Pirates',          wed: 'Crazy Hat',     fri: 'Pirates' },
+  { em: '🌎',  wk: 'Week 2 · Jun 15–19',   cls: 'c2 d1',  title: 'My Country',       wed: 'Crazy Socks',   fri: 'My Country' },
+  { em: '🇮🇱',  wk: 'Week 3 · Jun 22–26',   cls: 'c3 d2',  title: 'Israel Week',      wed: 'Face Painting', fri: 'Israel', special: true },
+  { em: '🇺🇸',  wk: 'Week 4 · Jun 29–Jul 2', cls: 'c4',     title: 'USA Independence', wed: 'Animal Day',    fri: 'USA (Thu Jul 2)', note: 'Camp closed Fri Jul 3' },
+  { em: '⚔️',  wk: 'Week 5 · Jul 6–10',    cls: 'c5 d1',  title: 'Color War Week',   wed: 'Bandana',       fri: 'Color War', special: true },
+  { em: '☮️',  wk: 'Week 6 · Jul 13–17',   cls: 'c6 d2',  title: 'Peace & Love',     wed: 'Tie-Dye',       fri: 'Peace and Love' },
+  { em: '💧',  wk: 'Week 7 · Jul 20–24',   cls: 'c7',     title: 'Water Week',       wed: 'Pijama',        fri: 'Disney', special: true, note: 'Robotics Yerucham program' },
+  { em: '🦸',  wk: 'Week 8 · Jul 27–31',   cls: 'c8 d1',  title: 'Heroes & Talent',  wed: 'Zombie Day',    fri: 'Superhero · Talent Show' },
+  { em: '🏆',  wk: 'Week 9 · Aug 3–7',     cls: 'c9 d2',  title: 'Sports',           wed: 'Crazy Hair',    fri: 'Sports' },
+];
+---
+<section class="section themes" id="themes">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow green">🎨 A new adventure every week</span>
+      <h2>Weekly <span class="hl">themes.</span></h2>
+      <p>Crazy Wednesday dress-up and a Friday theme every week — plus three special weeks: <strong>Israel</strong>, <strong>Color War</strong>, and <strong>Water Week</strong>.</p>
+    </div>
+    <div class="themes-grid">
+      {weeks.map((w) => (
+        <div class={`theme-card ${w.cls} reveal`}>
+          <span class="em">{w.em}</span>
+          <div class="wk">{w.wk}</div>
+          <h4>
+            {w.title}
+            {w.special && <span class="script" style="display:inline-block;margin-left:8px;font-size:14px;transform:rotate(-3deg);color:var(--red)">★ special</span>}
+          </h4>
+          <p><strong>Crazy Wed:</strong> {w.wed}<br /><strong>Friday:</strong> {w.fri}</p>
+          {w.note && <p style="margin-top:8px;font-size:13px;color:var(--ink-soft);font-style:italic">{w.note}</p>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

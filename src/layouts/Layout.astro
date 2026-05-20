@@ -1,0 +1,68 @@
+---
+import '../styles/main.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Camp Life 2026 · Camp Sol Taplin · A MARJCC Summer Camp',
+  description = "Your family guide to the best summer ever at Camp Sol Taplin. Schedules, routines, carpool, activities, and everything you need for Summer 2026. June 8 – August 7.",
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://camplife.marjcc.org').toString();
+const ogImage = `${siteUrl}/assets/sunny-3.png`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Camp Life 2026 · Camp Sol Taplin" />
+  <meta property="og:description" content="Your family guide to the best summer ever at Camp Sol Taplin. June 8 – August 7, 2026. Register now." />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Camp Life 2026 · Camp Sol Taplin" />
+  <meta name="twitter:description" content="Your family guide to the best summer ever. Register for Summer 2026." />
+  <meta name="twitter:image" content={ogImage} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": ["Organization", "SummerCamp"],
+    "name": "Camp Sol Taplin",
+    "parentOrganization": "Michael-Ann Russell Jewish Community Center",
+    "url": siteUrl || "https://camplife.marjcc.org",
+    "telephone": "+1-305-932-4200",
+    "email": "campsoltaplin@marjcc.org",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Aventura",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "description": "A MARJCC summer camp for ages 2–15. Summer 2026 runs June 8 – August 7."
+  })} />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <slot />
+
+  <script src="/scripts/main.js" defer is:inline></script>
+</body>
+</html>

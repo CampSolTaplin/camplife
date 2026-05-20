@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camp Life 2026 · Camp Sol Taplin · A MARJCC Summer Camp</title>
+<meta name="description" content="Your family guide to the best summer ever at Camp Sol Taplin. Schedules, routines, carpool, activities, and everything you need for Summer 2026. June 8 – August 7.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fraunces (display serif) + Plus Jakarta Sans (characterful body) + Caveat (handwritten accent) -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════════════════════════
+   CAMP LIFE · Standalone Landing · Camp Sol Taplin 2026
+   Design direction: Playful editorial — warm, sunny, energetic
+   with refined typographic hierarchy and tactile depth.
+   ════════════════════════════════════════════════════════════ */
+
+:root{
+  /* Brand */
+  --sky:#29ABE2;
+  --sky-soft:#E6F4FB;
+  --sky-deep:#1B8AC0;
+  --yellow:#FFC107;
+  --yellow-soft:#FFF6D6;
+  --yellow-deep:#E8A800;
+  --navy:#1B3A8C;
+  --navy-deep:#0E235C;
+  --ink:#16203A;
+  --ink-soft:#5A6485;
+  --paper:#FFFFFF;
+  --cream:#FFFBF3;
+  --cream-deep:#FDF4E3;
+  --line:#EAEEF6;
+  --red:#E04A4A;
+  --green:#3FA876;
+  --coral:#FF7B5A;
+
+  --container:1180px;
+  --radius:18px;
+  --radius-sm:12px;
+  --radius-lg:28px;
+  --shadow-xs:0 1px 3px rgba(14,35,92,.06);
+  --shadow-sm:0 4px 16px rgba(14,35,92,.08);
+  --shadow:0 12px 36px rgba(14,35,92,.12);
+  --shadow-lg:0 28px 70px rgba(14,35,92,.22);
+  --t:cubic-bezier(.22,.85,.3,1);
+  --t-bounce:cubic-bezier(.34,1.56,.64,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  color:var(--ink);line-height:1.6;background:var(--paper);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* Subtle paper grain overlay for warmth */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
+  opacity:.025;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Typography */
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;color:var(--navy);line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(44px,8vw,104px);font-weight:900}
+h2{font-size:clamp(34px,5vw,60px);font-weight:800}
+h3{font-size:clamp(22px,2.6vw,32px);font-weight:700}
+h4{font-size:19px;font-weight:700;letter-spacing:-.01em}
+
+.script{
+  font-family:'Caveat',cursive;font-weight:700;
+  color:var(--red);font-size:clamp(22px,2.6vw,30px);
+  display:inline-block;transform:rotate(-2.5deg);
+}
+
+.container{width:min(var(--container),90%);margin-inline:auto}
+.section{padding:clamp(64px,9vw,120px) 0;position:relative}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(48px);transition:opacity .9s var(--t),transform .9s var(--t)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:16px 32px;border-radius:50px;
+  font-weight:700;font-size:16px;letter-spacing:-.01em;
+  transition:transform .3s var(--t-bounce),box-shadow .3s var(--t),background .25s;
+  white-space:nowrap;
+}
+.btn.primary{background:var(--yellow);color:var(--navy-deep);box-shadow:0 8px 0 var(--yellow-deep)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 11px 0 var(--yellow-deep)}
+.btn.primary:active{transform:translateY(2px);box-shadow:0 4px 0 var(--yellow-deep)}
+.btn.dark{background:var(--navy);color:#fff;box-shadow:0 8px 0 var(--navy-deep)}
+.btn.dark:hover{transform:translateY(-3px);box-shadow:0 11px 0 var(--navy-deep)}
+.btn.dark:active{transform:translateY(2px);box-shadow:0 4px 0 var(--navy-deep)}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.45);backdrop-filter:blur(4px)}
+.btn.ghost:hover{background:rgba(255,255,255,.22);transform:translateY(-3px)}
+.btn.outline{background:#fff;color:var(--navy);border:2px solid var(--line);box-shadow:var(--shadow-xs)}
+.btn.outline:hover{border-color:var(--sky);color:var(--sky-deep);transform:translateY(-2px)}
+
+/* Pills / eyebrows */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--sky-soft);color:var(--sky-deep);
+  padding:7px 16px;border-radius:50px;
+  font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.eyebrow.yellow{background:var(--yellow-soft);color:var(--yellow-deep)}
+.eyebrow.green{background:#E8F6EF;color:var(--green)}
+.eyebrow.coral{background:#FFEDE8;color:var(--coral)}
+
+.section-head{max-width:720px;margin-bottom:clamp(40px,5vw,64px)}
+.section-head.center{margin-inline:auto;text-align:center}
+.section-head h2 .hl{color:var(--sky)}
+.section-head h2 .mark{background:var(--yellow);color:var(--navy-deep);padding:0 .2em;border-radius:8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.section-head p{font-size:clamp(17px,1.7vw,20px);color:var(--ink-soft);margin-top:18px;line-height:1.55}
+
+/* ════════════════════════════════════════════════════════════
+   TOP NAV
+   ════════════════════════════════════════════════════════════ */
+.scroll-progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--sky),var(--yellow));z-index:1100;transition:width .1s linear}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:18px 0;transition:all .4s var(--t);
+}
+.nav.scrolled{padding:10px 0;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);box-shadow:var(--shadow-sm)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:800;font-size:21px;color:#fff;transition:color .4s}
+.nav.scrolled .nav-logo{color:var(--navy)}
+.nav-logo img{height:36px;width:auto}
+.nav.scrolled .nav-logo .logo-light{display:none}
+.nav-logo .logo-dark{display:none}
+.nav.scrolled .nav-logo .logo-dark{display:block}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:9px 15px;border-radius:10px;font-weight:600;font-size:14.5px;color:rgba(255,255,255,.92);transition:all .25s}
+.nav.scrolled .nav-links a{color:var(--ink)}
+.nav-links a:hover{background:rgba(255,255,255,.16)}
+.nav.scrolled .nav-links a:hover{background:var(--sky-soft);color:var(--sky-deep)}
+.nav-cta{background:var(--yellow);color:var(--navy-deep)!important;font-weight:700;padding:11px 22px!important;border-radius:50px!important;box-shadow:0 5px 0 var(--yellow-deep);transition:transform .25s var(--t-bounce),box-shadow .25s!important}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--yellow-deep)!important;background:var(--yellow)!important}
+.nav-toggle{display:none;width:44px;height:44px;border-radius:11px;color:#fff;font-size:24px;align-items:center;justify-content:center}
+.nav.scrolled .nav-toggle{color:var(--navy)}
+
+/* ════════════════════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════════════════════ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 78% 8%,rgba(255,193,7,.22),transparent 42%),
+    radial-gradient(120% 120% at 8% 96%,rgba(41,171,226,.5),transparent 46%),
+    linear-gradient(155deg,var(--navy-deep) 0%,var(--navy) 52%,#2456B8 120%);
+  color:#fff;padding:118px 0 64px;
+}
+/* floating blobs */
+.hero-blob{position:absolute;border-radius:50%;filter:blur(8px);opacity:.5;pointer-events:none}
+.hero-blob.b1{width:120px;height:120px;background:var(--yellow);top:22%;right:14%;animation:drift 9s ease-in-out infinite}
+.hero-blob.b2{width:70px;height:70px;background:var(--sky);bottom:26%;left:10%;animation:drift 7s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-26px)}}
+
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;position:relative;z-index:2}
+.hero-trust{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(6px);
+  padding:8px 16px 8px 8px;border-radius:50px;margin-bottom:20px;
+  font-size:13.5px;font-weight:600;color:rgba(255,255,255,.95);
+  animation:fade-up .9s var(--t) both;
+}
+.hero-trust .chip{background:var(--yellow);color:var(--navy-deep);font-weight:800;padding:4px 11px;border-radius:50px;font-size:12px}
+.hero h1{color:#fff;font-size:clamp(52px,8vw,104px);line-height:.86;margin-bottom:6px;animation:fade-up .9s .12s var(--t) both}
+.hero h1 .life{color:var(--yellow);font-style:italic;display:inline-block}
+.hero-sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2vw,22px);color:rgba(255,255,255,.92);max-width:500px;line-height:1.4;margin:16px 0 26px;animation:fade-up .9s .24s var(--t) both}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;animation:fade-up .9s .36s var(--t) both}
+.hero-meta{display:flex;gap:24px;margin-top:30px;flex-wrap:wrap;animation:fade-up .9s .48s var(--t) both}
+.hero-meta .item{display:flex;align-items:center;gap:10px}
+.hero-meta .item .ic{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:18px}
+.hero-meta .item .txt{font-size:13px;line-height:1.3}
+.hero-meta .item .txt b{display:block;font-size:16px;font-family:'Fraunces',serif;font-weight:700}
+.hero-meta .item .txt span{color:rgba(255,255,255,.7)}
+
+.hero-art{position:relative;animation:float 6s ease-in-out infinite}
+.hero-art img{width:100%;max-width:340px;margin-inline:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.4))}
+.hero-art .ring{position:absolute;inset:-6% -2% 8% -2%;border:3px dashed rgba(255,255,255,.25);border-radius:50%;animation:spin 28s linear infinite}
+.hero-art .star{position:absolute;font-family:'Caveat',cursive;color:var(--yellow);font-size:34px;font-weight:700}
+.hero-art .star.s1{top:0;right:8%;transform:rotate(-12deg)}
+.hero-art .star.s2{bottom:14%;left:-2%;font-size:26px;transform:rotate(10deg)}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fade-up{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+
+/* Wave divider */
+.wave-divider{position:absolute;left:0;right:0;bottom:-1px;line-height:0;z-index:3}
+.wave-divider svg{width:100%;height:auto;display:block}
+
+/* ════════════════════════════════════════════════════════════
+   TRUST BAR (logos / accreditation strip)
+   ════════════════════════════════════════════════════════════ */
+.trustbar{background:#fff;padding:28px 0;border-bottom:1px solid var(--line)}
+.trustbar-inner{display:flex;align-items:center;justify-content:center;gap:clamp(20px,5vw,64px);flex-wrap:wrap}
+.trustbar .ti{display:flex;align-items:center;gap:11px;color:var(--ink-soft);font-weight:600;font-size:14.5px}
+.trustbar .ti .ic{width:42px;height:42px;border-radius:12px;background:var(--sky-soft);display:grid;place-items:center;font-size:20px}
+
+/* ════════════════════════════════════════════════════════════
+   WHY CST — Benefit cards (emotional sell)
+   ════════════════════════════════════════════════════════════ */
+.why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.why-card{
+  background:#fff;border-radius:var(--radius);padding:34px 30px;
+  box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  transition:transform .4s var(--t),box-shadow .4s var(--t);
+}
+.why-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.why-card .emoji{
+  width:62px;height:62px;border-radius:18px;display:grid;place-items:center;
+  font-size:30px;margin-bottom:20px;background:var(--c-soft);
+  transition:transform .4s var(--t-bounce);
+}
+.why-card:hover .emoji{transform:rotate(-8deg) scale(1.08)}
+.why-card h3{margin-bottom:10px;font-size:24px}
+.why-card p{color:var(--ink-soft);font-size:15.5px;margin:0}
+.why-card::after{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--c)}
+.why-card.c1{--c:var(--sky);--c-soft:var(--sky-soft)}
+.why-card.c2{--c:var(--yellow);--c-soft:var(--yellow-soft)}
+.why-card.c3{--c:var(--green);--c-soft:#E8F6EF}
+.why-card.c4{--c:var(--coral);--c-soft:#FFEDE8}
+.why-card.c5{--c:var(--navy);--c-soft:var(--sky-soft)}
+.why-card.c6{--c:var(--red);--c-soft:#FFEDED}
+
+/* ════════════════════════════════════════════════════════════
+   MOMENTS — image mosaic teaser
+   ════════════════════════════════════════════════════════════ */
+.moments{background:#fff;overflow:hidden}
+.moments-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px;margin-top:8px}
+.mtile{border-radius:var(--radius);overflow:hidden;position:relative;background:linear-gradient(135deg,var(--sky-soft),var(--yellow-soft));box-shadow:var(--shadow-sm)}
+.mtile.big{grid-column:span 2;grid-row:span 2}
+.mtile.tall{grid-row:span 2}
+.mtile img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .5s var(--t)}
+.mtile:hover img{transform:scale(1.06)}
+.mtile .cap{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(transparent,rgba(14,35,92,.7));color:#fff;font-family:'Caveat',cursive;font-size:22px;font-weight:700}
+
+/* ════════════════════════════════════════════════════════════
+   TRIBE
+   ════════════════════════════════════════════════════════════ */
+.tribe{background:var(--cream);position:relative}
+.tribe-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+.tcard{
+  border-radius:var(--radius);background:#fff;border:2px solid var(--line);
+  padding:34px 18px 26px;text-align:center;cursor:pointer;position:relative;overflow:hidden;
+  transition:transform .4s var(--t),border-color .4s,box-shadow .4s;
+}
+.tcard::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--c)}
+.tcard:hover{transform:translateY(-10px);border-color:var(--c);box-shadow:var(--shadow)}
+.tcard .letter{font-family:'Fraunces',serif;font-weight:900;font-size:68px;line-height:.9;color:var(--navy);transition:color .35s,transform .4s var(--t-bounce)}
+.tcard:hover .letter{color:var(--c);transform:scale(1.12)}
+.tcard .heb{font-weight:700;color:var(--navy);font-size:16px;margin-top:8px}
+.tcard .en{font-size:13px;color:var(--ink-soft);font-style:italic;margin-top:3px}
+.tcard .more{max-height:0;opacity:0;overflow:hidden;transition:all .45s var(--t);font-size:13px;color:var(--ink-soft)}
+.tcard:hover .more{max-height:180px;opacity:1;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.tcard.t{--c:var(--red)}.tcard.r{--c:var(--yellow)}.tcard.i{--c:var(--sky)}.tcard.b{--c:var(--green)}.tcard.e{--c:var(--navy)}
+
+/* ════════════════════════════════════════════════════════════
+   A WEEK — timeline
+   ════════════════════════════════════════════════════════════ */
+.week{background:#fff}
+.tl-wrap{margin-top:8px;overflow-x:auto;padding:8px 0 28px;scrollbar-width:thin}
+.tl-wrap::-webkit-scrollbar{height:8px}
+.tl-wrap::-webkit-scrollbar-thumb{background:var(--sky);border-radius:4px}
+.tl-wrap::-webkit-scrollbar-track{background:var(--line);border-radius:4px}
+.tl{display:flex;gap:22px;min-width:max-content;position:relative;padding:0 2px}
+.tl::before{content:"";position:absolute;top:56px;left:0;right:0;height:3px;background:linear-gradient(to right,var(--sky),var(--yellow),var(--green),var(--navy));border-radius:2px}
+.tl-day{width:230px;flex-shrink:0;position:relative;z-index:1}
+.tl-time{background:#fff;border:2px solid var(--c);color:var(--c);font-weight:800;font-size:13.5px;padding:7px 15px;border-radius:50px;width:fit-content;margin:0 auto 14px;position:relative;left:50%;transform:translateX(-50%)}
+.tl-dot{width:22px;height:22px;border-radius:50%;background:var(--c);margin:0 auto 20px;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--c)}
+.tl-card{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm);border-top:4px solid var(--c);transition:transform .35s var(--t),box-shadow .35s}
+.tl-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.tl-card h4{margin-bottom:6px}
+.tl-card p{font-size:14px;color:var(--ink-soft);margin:0}
+.tl-day.c-sky{--c:var(--sky)}.tl-day.c-yel{--c:var(--yellow)}.tl-day.c-grn{--c:var(--green)}.tl-day.c-red{--c:var(--red)}.tl-day.c-nav{--c:var(--navy)}.tl-day.c-cor{--c:var(--coral)}
+
+.special{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.sp{background:var(--cream);border:1.5px solid var(--line);border-radius:var(--radius);padding:22px;transition:transform .35s var(--t),border-color .35s}
+.sp:hover{transform:translateY(-4px);border-color:var(--yellow)}
+.sp .ic{width:50px;height:50px;border-radius:14px;background:var(--yellow-soft);display:grid;place-items:center;font-size:25px;margin-bottom:13px}
+.sp h4{margin-bottom:4px}.sp p{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* ════════════════════════════════════════════════════════════
+   CARPOOL
+   ════════════════════════════════════════════════════════════ */
+.carpool{background:var(--cream)}
+.cp-windows{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:46px}
+.cp-win{background:#fff;border-radius:var(--radius);padding:34px;border-top:6px solid var(--c);box-shadow:var(--shadow-sm);transition:transform .4s var(--t),box-shadow .4s}
+.cp-win:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.cp-win.morning{--c:var(--sky)}.cp-win.afternoon{--c:var(--yellow)}
+.cp-win .lab{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:4px}
+.cp-win .time{font-family:'Fraunces',serif;font-weight:800;font-size:40px;color:var(--navy);margin-bottom:16px}
+.cp-win ul{list-style:none}
+.cp-win li{padding:9px 0 9px 30px;position:relative;font-size:15px;border-bottom:1px dashed var(--line)}
+.cp-win li:last-child{border-bottom:0}
+.cp-win li::before{content:"";position:absolute;left:0;top:12px;width:15px;height:15px;border:2px solid var(--c);border-radius:4px}
+.cp-tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.cp-tab{background:#fff;border:2px solid var(--line);padding:12px 24px;border-radius:50px;font-weight:700;color:var(--ink-soft);font-size:14px;transition:all .25s}
+.cp-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.cp-tab:hover:not(.active){border-color:var(--sky);color:var(--sky-deep)}
+.cp-detail{display:none;background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-sm);grid-template-columns:1fr 1.5fr;gap:32px;align-items:center}
+.cp-detail.active{display:grid}
+.cp-map{aspect-ratio:4/3;background:linear-gradient(135deg,var(--sky-soft),var(--yellow-soft));border-radius:var(--radius-sm);position:relative;overflow:hidden;display:grid;place-items:center}
+.cp-map::before{content:"";position:absolute;inset:16px;background-image:linear-gradient(rgba(27,58,140,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(27,58,140,.07) 1px,transparent 1px);background-size:22px 22px;border-radius:8px}
+.cp-pin{width:46px;height:46px;background:var(--red);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:grid;place-items:center;box-shadow:0 8px 18px rgba(224,74,74,.45);animation:pin 1.6s ease-in-out infinite;z-index:1}
+.cp-pin::before{content:"";width:17px;height:17px;background:#fff;border-radius:50%;transform:rotate(45deg)}
+@keyframes pin{0%,100%{transform:rotate(-45deg) translateY(0)}50%{transform:rotate(-45deg) translateY(-9px)}}
+.cp-detail .badge{display:inline-block;background:var(--sky-soft);color:var(--sky-deep);padding:5px 13px;border-radius:50px;font-size:12px;font-weight:700;margin-bottom:11px}
+.cp-detail ul{padding-left:18px;font-size:15px}.cp-detail li{margin-bottom:6px}
+.cp-req{margin-top:30px;background:var(--navy);border-radius:var(--radius);padding:28px;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.cp-req .ic{width:62px;height:62px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:30px}
+.cp-req h3{color:#fff;margin-bottom:6px}.cp-req p{color:rgba(255,255,255,.85);font-size:15px;margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.step{background:#fff;border-radius:var(--radius);padding:26px 24px;border-left:5px solid var(--yellow);box-shadow:var(--shadow-sm);position:relative;transition:transform .35s var(--t),box-shadow .35s}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.step .n{position:absolute;top:-16px;left:24px;width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;font-family:'Fraunces',serif;font-weight:800;font-size:18px;display:grid;place-items:center}
+.step h4{margin:16px 0 8px}.step p{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* ════════════════════════════════════════════════════════════
+   PACK CHECKLIST
+   ════════════════════════════════════════════════════════════ */
+.pack{background:#fff}
+.pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+.pack-col{border-radius:var(--radius);padding:34px;border-top:6px solid var(--c)}
+.pack-col.bring{--c:var(--green);background:#F4FBF7}
+.pack-col.no{--c:var(--red);background:#FFF7F7}
+.pack-col .ih{width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:25px;font-weight:900;color:var(--c);margin-bottom:15px;box-shadow:var(--shadow-xs)}
+.pack-col h3{margin-bottom:16px}
+.pitem{display:flex;align-items:center;gap:13px;padding:11px 0;border-bottom:1px dashed rgba(0,0,0,.07);cursor:pointer}
+.pitem:last-child{border-bottom:0}
+.pitem input{appearance:none;width:23px;height:23px;border:2px solid var(--c);border-radius:6px;flex-shrink:0;position:relative;transition:all .2s;cursor:pointer}
+.pitem input:checked{background:var(--c)}
+.pitem input:checked::after{content:"\2713";position:absolute;inset:0;color:#fff;font-weight:900;font-size:14px;display:grid;place-items:center}
+.pitem input:checked + label{text-decoration:line-through;color:var(--ink-soft)}
+.pitem label{font-size:15px;cursor:pointer;flex:1}
+.pprog{display:flex;align-items:center;gap:14px;margin-top:18px;padding:15px 18px;background:#fff;border-radius:12px;box-shadow:var(--shadow-xs)}
+.pprog .bar{flex:1;height:9px;background:var(--line);border-radius:5px;overflow:hidden}
+.pprog .fill{height:100%;background:var(--green);width:0;transition:width .45s var(--t);border-radius:5px}
+.pprog .pct{font-weight:800;color:var(--green);font-size:14px;min-width:54px;text-align:right}
+
+/* ════════════════════════════════════════════════════════════
+   ACTIVITIES — filter
+   ════════════════════════════════════════════════════════════ */
+.acts{background:var(--cream)}
+.filters{display:flex;gap:8px;margin:8px 0 30px;flex-wrap:wrap}
+.fpill{background:#fff;border:2px solid var(--line);padding:11px 21px;border-radius:50px;font-weight:700;color:var(--ink-soft);font-size:14px;transition:all .25s}
+.fpill.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fpill:hover:not(.active){border-color:var(--sky);color:var(--sky-deep)}
+.acts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.acard{background:#fff;border-radius:var(--radius);padding:30px;border-top:5px solid var(--c);box-shadow:var(--shadow-sm);transition:transform .4s var(--t),box-shadow .4s}
+.acard.hide{display:none}
+.acard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.acard .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);font-weight:800;margin-bottom:6px}
+.acard h4{margin-bottom:10px}.acard p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.6}
+.acard.creative{--c:var(--sky)}.acard.active-cat{--c:var(--yellow)}.acard.wellness{--c:var(--green)}.acard.identity{--c:var(--navy)}.acard.tradition{--c:var(--red)}.acard.bonus{--c:#9C4DCC}
+
+/* ════════════════════════════════════════════════════════════
+   ACCORDIONS (conduct + faq)
+   ════════════════════════════════════════════════════════════ */
+.acc{background:#fff}
+.acc-list{margin-top:8px;display:grid;gap:12px;max-width:860px}
+.acc-item{background:#fff;border:1.5px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.acc-item.open{border-color:var(--sky);box-shadow:var(--shadow-sm)}
+.acc-head{display:flex;align-items:center;gap:15px;padding:19px 24px;cursor:pointer}
+.acc-head .n{width:36px;height:36px;border-radius:50%;background:var(--sky-soft);color:var(--sky-deep);font-family:'Fraunces',serif;font-weight:800;font-size:16px;display:grid;place-items:center;flex-shrink:0;transition:all .3s}
+.acc-item.open .n{background:var(--sky);color:#fff}
+.acc-head h4{flex:1;margin:0}
+.acc-head .ar{font-size:18px;color:var(--navy);transition:transform .3s var(--t);flex-shrink:0}
+.acc-item.open .ar{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s var(--t)}
+.acc-item.open .acc-body{max-height:520px}
+.acc-bin{padding:0 24px 24px 75px;color:var(--ink-soft);font-size:15px;line-height:1.65}
+.acc-bin ul{padding-left:18px;margin:6px 0}.acc-bin li{margin-bottom:5px}
+.aca-tag{display:inline-block;background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-left:8px}
+
+/* ════════════════════════════════════════════════════════════
+   COMMUNICATION
+   ════════════════════════════════════════════════════════════ */
+.comm{background:var(--cream)}
+.comm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+.ccard{background:#fff;border-radius:var(--radius);padding:28px;border-top:5px solid var(--c);box-shadow:var(--shadow-sm);transition:transform .4s var(--t),box-shadow .4s}
+.ccard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.ccard.sky{--c:var(--sky)}.ccard.yellow{--c:var(--yellow)}.ccard.green{--c:var(--green)}.ccard.navy{--c:var(--navy);background:var(--navy)}
+.ccard.navy h4{color:#fff}.ccard.navy p{color:rgba(255,255,255,.85)}.ccard.navy .lab{color:var(--yellow)}.ccard.navy a{color:var(--yellow)}
+.ccard .ic{width:56px;height:56px;border-radius:15px;background:var(--c);display:grid;place-items:center;font-size:26px;margin-bottom:16px;color:#fff}
+.ccard.navy .ic{background:var(--yellow);color:var(--navy)}
+.ccard .lab{font-size:11px;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:var(--c);margin-bottom:4px}
+.ccard h4{margin-bottom:8px}.ccard p{font-size:14px;color:var(--ink-soft);margin-bottom:10px;line-height:1.5}
+.ccard a{font-weight:700;font-size:14px;color:var(--sky-deep)}
+
+/* ════════════════════════════════════════════════════════════
+   DATES
+   ════════════════════════════════════════════════════════════ */
+.dates{background:#fff}
+.dt-line{margin-top:8px;position:relative;padding-left:34px;max-width:860px}
+.dt-line::before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:3px;background:linear-gradient(to bottom,var(--sky),var(--yellow),var(--red));border-radius:2px}
+.dt{position:relative;padding:18px 26px;margin-bottom:15px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-sm);display:grid;grid-template-columns:130px 1fr auto;gap:22px;align-items:center;transition:transform .3s var(--t),box-shadow .3s}
+.dt:hover{transform:translateX(5px);box-shadow:var(--shadow)}
+.dt::before{content:"";position:absolute;left:-34px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--c);box-shadow:0 0 0 3px #fff}
+.dt .when{font-family:'Fraunces',serif;font-weight:800;color:var(--navy);font-size:19px}
+.dt .when small{display:block;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.dt .what strong{display:block;font-family:'Fraunces',serif;color:var(--navy-deep);font-size:17px;margin-bottom:2px}
+.dt .what{font-size:14.5px;color:var(--ink-soft)}
+.dt .tag{background:var(--c);color:#fff;padding:5px 13px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.dt.pre{--c:var(--sky)}.dt.start{--c:var(--green)}.dt.holiday{--c:var(--red)}.dt.end{--c:var(--navy)}
+
+/* ════════════════════════════════════════════════════════════
+   FINAL CTA
+   ════════════════════════════════════════════════════════════ */
+.finalcta{background:radial-gradient(120% 120% at 80% 10%,rgba(255,193,7,.3),transparent 45%),linear-gradient(155deg,var(--navy-deep),var(--navy) 55%,#2456B8);color:#fff;text-align:center;position:relative;overflow:hidden}
+.finalcta h2{color:#fff;font-size:clamp(38px,6vw,76px)}
+.finalcta h2 .life{color:var(--yellow);font-style:italic}
+.finalcta p{font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.9);max-width:560px;margin:20px auto 36px}
+.finalcta .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.finalcta .sunny-peek{position:absolute;bottom:-10px;right:6%;width:180px;opacity:.9;animation:float 6s ease-in-out infinite}
+
+/* ════════════════════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════════════════════ */
+.foot{background:var(--navy-deep);color:#fff;padding:64px 0 30px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:44px}
+.foot .brand{font-family:'Fraunces',serif;font-weight:800;font-size:26px;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.foot .brand img{height:38px}
+.foot .tag{color:rgba(255,255,255,.7);font-size:14px;line-height:1.6;max-width:300px}
+.foot h5{color:var(--yellow);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:15px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700}
+.foot ul{list-style:none}.foot li{margin-bottom:9px}
+.foot a{color:rgba(255,255,255,.78);font-size:14px;transition:color .2s}.foot a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55)}
+
+/* ════════════════════════════════════════════════════════════
+   FAB + MOBILE STICKY CTA
+   ════════════════════════════════════════════════════════════ */
+.fab{position:fixed;bottom:24px;right:24px;padding:13px 22px 13px 13px;border-radius:50px;background:#25D366;color:#fff;display:flex;align-items:center;gap:10px;box-shadow:0 10px 28px rgba(37,211,102,.45);font-weight:700;font-size:15px;z-index:980;transition:transform .25s var(--t-bounce)}
+.fab:hover{transform:scale(1.06)}
+.fab .ic{width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:20px}
+.mobile-cta{display:none}
+
+/* ════════════════════════════════════════════════════════════
+   QUICK ACCESS HUB — the 9 essentials
+   ════════════════════════════════════════════════════════════ */
+.hub{background:#fff;position:relative;z-index:5;margin-top:-40px}
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hub-card{
+  display:flex;align-items:center;gap:16px;
+  background:#fff;border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;position:relative;overflow:hidden;
+  transition:transform .35s var(--t),box-shadow .35s var(--t),border-color .35s;
+  box-shadow:var(--shadow-xs);
+}
+.hub-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c);transform:scaleY(0);transform-origin:top;transition:transform .35s var(--t)}
+.hub-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--c)}
+.hub-card:hover::before{transform:scaleY(1)}
+.hub-ic{width:54px;height:54px;border-radius:15px;background:var(--c-soft);display:grid;place-items:center;font-size:26px;flex-shrink:0;transition:transform .35s var(--t-bounce)}
+.hub-card:hover .hub-ic{transform:rotate(-7deg) scale(1.07)}
+.hub-txt h4{margin:0 0 2px;font-size:17px}
+.hub-txt p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.35}
+.hub-card .arrow{margin-left:auto;color:var(--c);font-size:18px;opacity:0;transform:translateX(-6px);transition:all .3s var(--t);flex-shrink:0}
+.hub-card:hover .arrow{opacity:1;transform:none}
+.hub-card.c1{--c:var(--green);--c-soft:#E8F6EF}
+.hub-card.c2{--c:var(--sky);--c-soft:var(--sky-soft)}
+.hub-card.c3{--c:var(--navy);--c-soft:var(--sky-soft)}
+.hub-card.c4{--c:var(--coral);--c-soft:#FFEDE8}
+.hub-card.c5{--c:var(--yellow);--c-soft:var(--yellow-soft)}
+.hub-card.c6{--c:var(--red);--c-soft:#FFEDED}
+.hub-card.c7{--c:var(--sky-deep);--c-soft:var(--sky-soft)}
+.hub-card.c8{--c:#9C4DCC;--c-soft:#F4E9FB}
+.hub-card.c9{--c:#25D366;--c-soft:#E6F9EE}
+.hub-card .ext{position:absolute;top:12px;right:14px;font-size:11px;color:var(--ink-soft);opacity:.6}
+
+/* ════════════════════════════════════════════════════════════
+   CAMPANION TUTORIAL
+   ════════════════════════════════════════════════════════════ */
+.campanion{background:var(--cream)}
+.camp-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.camp-steps{display:grid;gap:16px}
+.cstep{display:flex;gap:18px;align-items:flex-start;background:#fff;border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-xs);transition:transform .35s var(--t),box-shadow .35s}
+.cstep:hover{transform:translateX(5px);box-shadow:var(--shadow-sm)}
+.cstep .num{width:42px;height:42px;border-radius:50%;background:var(--sky);color:#fff;font-family:'Fraunces',serif;font-weight:800;font-size:19px;display:grid;place-items:center;flex-shrink:0}
+.cstep h4{margin:0 0 4px}.cstep p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+.store-btns{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.store-btn{display:inline-flex;align-items:center;gap:11px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:14px;transition:transform .25s var(--t-bounce),box-shadow .25s;box-shadow:0 5px 0 var(--navy-deep)}
+.store-btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--navy-deep);color:#fff}
+.store-btn .si{font-size:26px}
+.store-btn .st{text-align:left;line-height:1.1}
+.store-btn .st small{display:block;font-size:10px;opacity:.8;font-weight:500}
+.store-btn .st b{font-size:16px;font-weight:700}
+.camp-visual{background:linear-gradient(150deg,var(--sky),var(--navy));border-radius:var(--radius-lg);padding:40px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.camp-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(255,193,7,.3),transparent 50%)}
+.camp-visual .phone{width:180px;height:340px;background:#fff;border-radius:28px;margin:0 auto;box-shadow:0 20px 50px rgba(0,0,0,.3);position:relative;border:8px solid #0E235C;overflow:hidden}
+.camp-visual .phone .scr{position:absolute;inset:0;background:linear-gradient(160deg,var(--sky-soft),#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px}
+.camp-visual .phone .scr .logo-c{width:60px;height:60px;border-radius:16px;background:var(--sky);display:grid;place-items:center;font-size:30px}
+.camp-visual .phone .scr b{font-family:'Fraunces',serif;color:var(--navy);font-size:18px}
+.camp-visual .phone .scr .ph-photo{width:100%;height:60px;border-radius:10px;background:linear-gradient(120deg,var(--yellow-soft),var(--sky-soft))}
+.camp-visual .cap{color:#fff;font-family:'Caveat',cursive;font-size:24px;margin-top:20px;position:relative}
+
+/* ════════════════════════════════════════════════════════════
+   WEEKLY THEMES
+   ════════════════════════════════════════════════════════════ */
+.themes{background:#fff}
+.themes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.theme-card{
+  border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;
+  background:var(--c-soft);border:1.5px solid var(--line);
+  transition:transform .35s var(--t),box-shadow .35s;min-height:140px;
+  display:flex;flex-direction:column;
+}
+.theme-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.theme-card .wk{font-family:'Fraunces',serif;font-weight:800;font-size:14px;color:var(--c);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.theme-card h4{margin:0 0 6px;font-size:22px}
+.theme-card p{margin:0;font-size:14px;color:var(--ink-soft)}
+.theme-card .em{position:absolute;top:18px;right:20px;font-size:30px;opacity:.85}
+.theme-card.c1{--c:var(--sky);--c-soft:var(--sky-soft)}
+.theme-card.c2{--c:var(--yellow-deep);--c-soft:var(--yellow-soft)}
+.theme-card.c3{--c:var(--green);--c-soft:#E8F6EF}
+.theme-card.c4{--c:var(--coral);--c-soft:#FFEDE8}
+.theme-card.c5{--c:var(--red);--c-soft:#FFEDED}
+.theme-card.c6{--c:#9C4DCC;--c-soft:#F4E9FB}
+.theme-card.c7{--c:var(--navy);--c-soft:var(--sky-soft)}
+.theme-card.c8{--c:var(--sky-deep);--c-soft:var(--sky-soft)}
+.theme-card.c9{--c:var(--green);--c-soft:#E8F6EF}
+
+/* ════════════════════════════════════════════════════════════
+   FORMS (Buy T-Shirts + Birthday)
+   ════════════════════════════════════════════════════════════ */
+.forms{background:var(--cream)}
+.forms-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+.form-card{
+  border-radius:var(--radius-lg);padding:40px;position:relative;overflow:hidden;
+  color:#fff;display:flex;flex-direction:column;min-height:240px;
+  transition:transform .4s var(--t),box-shadow .4s;box-shadow:var(--shadow)
+}
+.form-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.form-card.tshirt{background:linear-gradient(150deg,var(--sky),var(--navy))}
+.form-card.bday{background:linear-gradient(150deg,var(--coral),var(--red))}
+.form-card::after{content:"";position:absolute;bottom:-30px;right:-20px;font-size:160px;opacity:.12;line-height:1}
+.form-card.tshirt::after{content:"👕"}
+.form-card.bday::after{content:"🎂"}
+.form-card .fic{font-size:42px;margin-bottom:14px}
+.form-card h3{color:#fff;margin-bottom:8px}
+.form-card p{color:rgba(255,255,255,.9);font-size:15px;margin-bottom:auto;max-width:90%}
+.form-card .btn{margin-top:24px;align-self:flex-start;background:#fff;color:var(--navy);box-shadow:0 6px 0 rgba(0,0,0,.18)}
+.form-card .btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(0,0,0,.18)}
+
+/* ════════════════════════════════════════════════════════════
+   LUNCH MENU
+   ════════════════════════════════════════════════════════════ */
+.lunch{background:#fff}
+.lunch-card{background:linear-gradient(150deg,var(--yellow-soft),var(--cream));border:1.5px solid var(--line);border-radius:var(--radius-lg);padding:44px;display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center}
+.lunch-card .lic{width:90px;height:90px;border-radius:24px;background:var(--yellow);display:grid;place-items:center;font-size:46px;flex-shrink:0;box-shadow:var(--shadow-sm)}
+.lunch-card h3{margin-bottom:6px}
+.lunch-card p{margin:0;color:var(--ink-soft);font-size:15.5px;max-width:520px}
+.lunch-card .btn{flex-shrink:0}
+
+/* ════════════════════════════════════════════════════════════
+   QUICK LINKS (Policies + Staff Directory)
+   ════════════════════════════════════════════════════════════ */
+.qlinks{background:var(--cream)}
+.qlinks-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+.qlink{display:flex;align-items:center;gap:22px;background:#fff;border-radius:var(--radius);padding:30px 32px;border:1.5px solid var(--line);box-shadow:var(--shadow-xs);transition:transform .35s var(--t),box-shadow .35s,border-color .35s}
+.qlink:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--c)}
+.qlink .qic{width:64px;height:64px;border-radius:18px;background:var(--c-soft);display:grid;place-items:center;font-size:30px;flex-shrink:0}
+.qlink h4{margin:0 0 4px}.qlink p{margin:0;font-size:14px;color:var(--ink-soft)}
+.qlink .arrow{margin-left:auto;color:var(--c);font-size:22px;flex-shrink:0}
+.qlink.c1{--c:var(--navy);--c-soft:var(--sky-soft)}
+.qlink.c2{--c:var(--green);--c-soft:#E8F6EF}
+
+/* ════════════════════════════════════════════════════════════
+   CHAT WITH SUNNY (dedicated band)
+   ════════════════════════════════════════════════════════════ */
+.sunny-band{background:linear-gradient(150deg,#1FAE54,#25D366);color:#fff;position:relative;overflow:hidden}
+.sunny-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(255,255,255,.18),transparent 45%)}
+.sunny-band-inner{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;z-index:1}
+.sunny-band h2{color:#fff}
+.sunny-band p{color:rgba(255,255,255,.92);font-size:18px;max-width:540px;margin:14px 0 28px}
+.sunny-band .btn{background:#fff;color:#1FAE54;box-shadow:0 6px 0 rgba(0,0,0,.15);font-size:17px}
+.sunny-band .btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(0,0,0,.15)}
+.sunny-band .sb-art{width:200px;flex-shrink:0}
+.sunny-band .sb-art img{filter:drop-shadow(0 16px 30px rgba(0,0,0,.3))}
+.sunny-band .wa-num{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:8px 18px;border-radius:50px;font-weight:700;margin-bottom:20px;font-size:15px}
+
+/* Section subtle label for "secondary" zone */
+.more-divider{text-align:center;padding:40px 0 0}
+.more-divider span{display:inline-block;font-family:'Caveat',cursive;color:var(--ink-soft);font-size:26px;transform:rotate(-1.5deg)}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-trust,.hero-cta-row,.hero-meta{justify-content:center}
+  .hero-art{max-width:320px;margin:0 auto}
+  .why-grid,.acts-grid{grid-template-columns:repeat(2,1fr)}
+  .moments-mosaic{grid-template-columns:repeat(2,1fr)}
+  .comm-grid{grid-template-columns:repeat(2,1fr)}
+  .cp-windows,.pack-grid{grid-template-columns:1fr}
+  .cp-detail.active{grid-template-columns:1fr}
+  .steps,.special{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .tribe-grid{grid-template-columns:repeat(2,1fr)}
+  .hub-grid{grid-template-columns:repeat(2,1fr)}
+  .camp-wrap{grid-template-columns:1fr;gap:32px}
+  .themes-grid{grid-template-columns:repeat(2,1fr)}
+  .forms-grid{grid-template-columns:1fr}
+  .lunch-card{grid-template-columns:auto 1fr;gap:20px}
+  .lunch-card .btn{grid-column:1/-1;justify-self:start}
+  .qlinks-grid{grid-template-columns:1fr}
+  .sunny-band-inner{grid-template-columns:1fr;text-align:center}
+  .sunny-band .sb-art{margin:0 auto}
+  .sunny-band p,.sunny-band .wa-num{margin-inline:auto}
+}
+@media (max-width:640px){
+  .section{padding:56px 0}
+  .why-grid,.acts-grid,.comm-grid,.tribe-grid,.special,.moments-mosaic{grid-template-columns:1fr}
+  .mtile.big,.mtile.tall{grid-column:auto;grid-row:auto}
+  .dt{grid-template-columns:1fr;gap:8px}
+  .dt::before{display:none}
+  .cp-req{grid-template-columns:1fr;text-align:center}
+  .foot-grid{grid-template-columns:1fr}
+  .fab span:not(.ic){display:none}
+  .fab{padding:13px;bottom:88px}
+  .mobile-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:990;background:#fff;padding:12px 16px;box-shadow:0 -4px 20px rgba(14,35,92,.12);gap:10px;align-items:center}
+  .mobile-cta .btn{flex:1;justify-content:center;padding:14px}
+  .nav-logo span{display:none}
+  .hub-grid,.themes-grid{grid-template-columns:1fr}
+  .lunch-card{grid-template-columns:1fr;text-align:center}
+  .lunch-card .lic{margin:0 auto}
+  .qlink{flex-wrap:wrap}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo">
+      <img src="assets/logo-white.png" class="logo-light" alt="MARJCC">
+      <img src="assets/logo.png" class="logo-dark" alt="MARJCC">
+      <span>Camp Life</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#pack">What to Bring</a></li>
+      <li><a href="#carpool">Carpool</a></li>
+      <li><a href="#campanion">Campanion</a></li>
+      <li><a href="#themes">Themes</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#lunch">Lunch</a></li>
+      <li><a href="https://marjcc.org/campregistration" class="nav-cta">Register →</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero" id="top">
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-trust"><span class="chip">2026</span> Registration is now open for Summer</div>
+      <h1>Camp <span class="life">Life.</span></h1>
+      <p class="hero-sub">Your family guide to the best summer ever — everything you need to know before, during, and after camp at Camp Sol Taplin.</p>
+      <div class="hero-cta-row">
+        <a href="https://marjcc.org/campregistration" class="btn primary">Register Now →</a>
+        <a href="#why" class="btn ghost">Explore camp</a>
+      </div>
+      <div class="hero-meta">
+        <div class="item"><div class="ic">📅</div><div class="txt"><b>Jun 8 – Aug 7</b><span>9 weeks of summer</span></div></div>
+        <div class="item"><div class="ic">📍</div><div class="txt"><b>Aventura, FL</b><span>A MARJCC camp</span></div></div>
+        <div class="item"><div class="ic">🎨</div><div class="txt"><b>15+ programs</b><span>Ages 2 – 15</span></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="ring"></div>
+      <span class="star s1">★</span>
+      <span class="star s2">Yalla!</span>
+      <img src="assets/sunny-3.png" alt="Sunny the camp mascot">
+    </div>
+  </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C240,80 480,0 720,32 C960,64 1200,16 1440,40 L1440,80 L0,80 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ═══════════ TRUST BAR ═══════════ -->
+<section class="trustbar">
+  <div class="container trustbar-inner">
+    <div class="ti"><div class="ic">🏕️</div> Pursuing ACA Accreditation</div>
+    <div class="ti"><div class="ic">✡️</div> Jewish values, every day</div>
+    <div class="ti"><div class="ic">🤝</div> Inclusion &amp; Joy for every camper</div>
+    <div class="ti"><div class="ic">🛟</div> Trained, vetted staff</div>
+  </div>
+</section>
+
+<!-- ═══════════ QUICK ACCESS HUB ═══════════ -->
+<section class="section hub" id="hub" style="padding-top:48px">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-bottom:36px">
+      <span class="eyebrow">⚡ Everything you need, fast</span>
+      <h2>Camp Life <span class="hl">essentials.</span></h2>
+      <p>The things families reach for most — all in one place.</p>
+    </div>
+    <div class="hub-grid">
+      <a href="#pack" class="hub-card c1 reveal"><div class="hub-ic">🎒</div><div class="hub-txt"><h4>What to Bring</h4><p>Daily pack list &amp; what to leave home</p></div><span class="arrow">→</span></a>
+      <a href="#campanion" class="hub-card c2 reveal d1"><div class="hub-ic">📱</div><div class="hub-txt"><h4>Get Campanion</h4><p>Download the app for daily photos</p></div><span class="arrow">→</span></a>
+      <a href="https://marjcc.org/PATH-camp-policies" target="_blank" class="hub-card c3 reveal d2"><span class="ext">↗ link</span><div class="hub-ic">📋</div><div class="hub-txt"><h4>Camp Policies</h4><p>Full policies &amp; agreements</p></div><span class="arrow">→</span></a>
+      <a href="https://marjcc.org/PATH-staff-directory" target="_blank" class="hub-card c4 reveal"><span class="ext">↗ link</span><div class="hub-ic">👥</div><div class="hub-txt"><h4>Staff Directory</h4><p>Meet the team &amp; find contacts</p></div><span class="arrow">→</span></a>
+      <a href="#themes" class="hub-card c5 reveal d1"><div class="hub-ic">🎨</div><div class="hub-txt"><h4>Weekly Themes</h4><p>What's happening each week</p></div><span class="arrow">→</span></a>
+      <a href="#forms" class="hub-card c6 reveal d2"><div class="hub-ic">📝</div><div class="hub-txt"><h4>Forms</h4><p>Buy t-shirts &amp; birthday celebrations</p></div><span class="arrow">→</span></a>
+      <a href="#carpool" class="hub-card c7 reveal"><div class="hub-ic">🚗</div><div class="hub-txt"><h4>Carpool Info</h4><p>Times, locations &amp; pickup rules</p></div><span class="arrow">→</span></a>
+      <a href="#lunch" class="hub-card c8 reveal d1"><div class="hub-ic">🍎</div><div class="hub-txt"><h4>Lunch Menu</h4><p>This week's menu</p></div><span class="arrow">→</span></a>
+      <a href="https://wa.me/message/MMN7EUES6WOUF1" target="_blank" class="hub-card c9 reveal d2"><span class="ext">↗ WhatsApp</span><div class="hub-ic">🐶</div><div class="hub-txt"><h4>Chat with Sunny</h4><p>Quick questions, fast answers</p></div><span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHAT TO BRING ═══════════ -->
+<section class="section pack" id="pack">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow yellow">Pack smart</span>
+      <h2>What to <span class="mark">bring.</span></h2>
+      <p>Label everything. Bring what you need. Leave the rest at home. Tap items to check them off — your progress is saved.</p>
+    </div>
+    <div class="pack-grid">
+      <div class="pack-col bring reveal">
+        <div class="ih">✓</div><h3>Pack daily</h3>
+        <div id="bringList">
+          <div class="pitem"><input type="checkbox" id="b1"><label for="b1">Camp t-shirt (worn each day)</label></div>
+          <div class="pitem"><input type="checkbox" id="b2"><label for="b2">Bathing suit (one-piece for swim days)</label></div>
+          <div class="pitem"><input type="checkbox" id="b3"><label for="b3">Towel</label></div>
+          <div class="pitem"><input type="checkbox" id="b4"><label for="b4">Sneakers — closed-toe, always</label></div>
+          <div class="pitem"><input type="checkbox" id="b5"><label for="b5">Water bottle (labeled with name)</label></div>
+          <div class="pitem"><input type="checkbox" id="b6"><label for="b6">Change of clothing</label></div>
+          <div class="pitem"><input type="checkbox" id="b7"><label for="b7">Sunblock — labeled with name</label></div>
+          <div class="pitem"><input type="checkbox" id="b8"><label for="b8">Snack &amp; lunch (if applicable)</label></div>
+          <div class="pitem"><input type="checkbox" id="b9"><label for="b9">Backpack (labeled)</label></div>
+        </div>
+        <div class="pprog"><span style="font-size:13px;font-weight:700;color:var(--ink-soft)">PROGRESS</span><div class="bar"><div class="fill" id="bFill"></div></div><span class="pct" id="bPct">0%</span></div>
+      </div>
+      <div class="pack-col no reveal d1">
+        <div class="ih">✕</div><h3>Do not bring</h3>
+        <div class="pitem"><input type="checkbox" disabled><label>Cellphones (no camper cell phone use)</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Tablets, laptops, video games</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Smartwatches with messaging</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Money or valuables</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Trading cards / collectibles</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Toy weapons, fireworks, real weapons</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Tobacco, alcohol, drugs, vape products</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Personal animals (service animals OK)</label></div>
+        <div class="pitem"><input type="checkbox" disabled><label>Glass containers</label></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ CARPOOL ═══════════ -->
+<section class="section carpool" id="carpool">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">First &amp; last impression, every day</span>
+      <h2>Carpool &amp; <span class="hl">pickup.</span></h2>
+      <p>Three locations, two windows, one promise — your camper is safe and accounted for, every moment.</p>
+    </div>
+    <div class="cp-windows">
+      <div class="cp-win morning reveal"><div class="lab">Morning Drop-off</div><div class="time">8:30 – 9:00 AM</div><ul><li>Three carpool locations to expedite drop-off</li><li>Drive through, drop off, keep moving</li><li>Parents stay in the vehicle at all times</li><li>Hang tag on rear-view mirror</li><li>Carpool form on dashboard with names</li></ul></div>
+      <div class="cp-win afternoon reveal d1"><div class="lab">Afternoon Pickup</div><div class="time">3:30 – 4:00 PM</div><ul><li>Same three locations, same routine</li><li>Only authorized adults may pick up</li><li>Valid ID required on first pickup</li><li>No release without authorization</li><li>Walk-up pickup is <strong>not</strong> permitted</li></ul></div>
+    </div>
+    <h3 class="reveal" style="margin-bottom:18px">3 Carpool Locations</h3>
+    <div class="reveal">
+      <div class="cp-tabs">
+        <button class="cp-tab active" data-loc="1">📍 Scheck Family Plaza</button>
+        <button class="cp-tab" data-loc="2">📍 Hillel</button>
+        <button class="cp-tab" data-loc="3">📍 Savage Playground</button>
+      </div>
+      <div class="cp-detail active" data-loc="1"><div class="cp-map"><div class="cp-pin"></div></div><div><span class="badge">Location 1 · Main</span><h3>Scheck Family Plaza</h3><p>MARJCC main entrance. The primary carpool location with the highest throughput.</p><ul><li>Direct entry from main road</li><li>Largest staging area</li><li>Closest to Camp Reception</li></ul></div></div>
+      <div class="cp-detail" data-loc="2"><div class="cp-map"><div class="cp-pin"></div></div><div><span class="badge">Location 2 · Hillel</span><h3>Hillel</h3><p>[FILL IN: which camps drop off here]</p><ul><li>Assigned camps: [FILL IN]</li><li>Entry route: [FILL IN]</li></ul></div></div>
+      <div class="cp-detail" data-loc="3"><div class="cp-map"><div class="cp-pin"></div></div><div><span class="badge">Location 3 · Savage</span><h3>Savage Playground</h3><p>[FILL IN: which camps drop off here]</p><ul><li>Assigned camps: [FILL IN]</li><li>Entry route: [FILL IN]</li></ul></div></div>
+    </div>
+    <div class="cp-req reveal"><div class="ic">📋</div><div><h3>Required for entry</h3><p><strong>Hang tag</strong> on your mirror + <strong>Carpool Form</strong> on your dashboard. Both distributed at T-Shirt Distribution Day, June 3, 2026, 4:00–7:30 PM, JCC Gym.</p></div></div>
+    <h3 class="reveal" style="margin-top:46px;margin-bottom:8px">Pickup Authorization</h3>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h4>Authorize at registration</h4><p>Only authorized adults on the registration form may pick up. Update anytime in CampMinder.</p></div>
+      <div class="step reveal d1"><div class="n">2</div><h4>Bring valid ID</h4><p>Authorized adults must present valid government-issued photo ID on request.</p></div>
+      <div class="step reveal d2"><div class="n">3</div><h4>One-time change?</h4><p>Notify your Unit Leader or Reception in writing before 12:00 PM. The adult still needs ID.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ CAMPANION TUTORIAL ═══════════ -->
+<section class="section campanion" id="campanion">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">📱 Stay connected all summer</span>
+      <h2>Get the <span class="hl">Campanion</span> app.</h2>
+      <p>Campanion is our official family app — daily photos of your camper, push notifications, schedules, and forms, all in one place. Here's how to get set up in minutes.</p>
+    </div>
+    <div class="camp-wrap">
+      <div class="camp-steps reveal">
+        <div class="cstep"><div class="num">1</div><div><h4>Download the app</h4><p>Get Campanion free from the App Store or Google Play using the buttons here.</p></div></div>
+        <div class="cstep"><div class="num">2</div><div><h4>Create your account</h4><p>Sign up with the email you used to register for camp so it links to your camper automatically.</p></div></div>
+        <div class="cstep"><div class="num">3</div><div><h4>Find your camper</h4><p>Your camper's group appears once camp links your account. Setup details are emailed before camp begins.</p></div></div>
+        <div class="cstep"><div class="num">4</div><div><h4>Turn on notifications</h4><p>Enable push &amp; photo alerts so you never miss a moment from the day.</p></div></div>
+        <div class="store-btns">
+          <a href="https://apps.apple.com/app/campanion" target="_blank" class="store-btn"><span class="si">📲</span><span class="st"><small>Download on the</small><b>App Store</b></span></a>
+          <a href="https://play.google.com/store/apps/details?id=com.campminder.campanion" target="_blank" class="store-btn"><span class="si">▶</span><span class="st"><small>Get it on</small><b>Google Play</b></span></a>
+        </div>
+      </div>
+      <div class="camp-visual reveal d1">
+        <div class="phone"><div class="scr"><div class="logo-c">📸</div><b>Campanion</b><div class="ph-photo"></div><div class="ph-photo"></div><div class="ph-photo"></div></div></div>
+        <div class="cap">Daily photos, right on your phone!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WEEKLY THEMES ═══════════ -->
+<section class="section themes" id="themes">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow green">🎨 A new adventure every week</span>
+      <h2>Weekly <span class="hl">themes.</span></h2>
+      <p>Each week of summer brings its own theme, dress-up days, and special activities. <span class="script">[FILL IN: confirm 2026 theme calendar &amp; dates]</span></p>
+    </div>
+    <div class="themes-grid">
+      <div class="theme-card c1 reveal"><span class="em">🚀</span><div class="wk">Week 1 · Jun 8–12</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c2 reveal d1"><span class="em">🌊</span><div class="wk">Week 2 · Jun 15–19</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c3 reveal d2"><span class="em">🇮🇱</span><div class="wk">Week 3 · Jun 22–26</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c4 reveal"><span class="em">🎪</span><div class="wk">Week 4 · Jun 29–Jul 2</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c5 reveal d1"><span class="em">⚔️</span><div class="wk">Week 5 · Jul 6–10</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c6 reveal d2"><span class="em">🎭</span><div class="wk">Week 6 · Jul 13–17</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c7 reveal"><span class="em">🔬</span><div class="wk">Week 7 · Jul 20–24</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c8 reveal d1"><span class="em">🏆</span><div class="wk">Week 8 · Jul 27–31</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+      <div class="theme-card c9 reveal d2"><span class="em">🎉</span><div class="wk">Week 9 · Aug 3–7</div><h4>[FILL IN]</h4><p>Theme description goes here.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FORMS ═══════════ -->
+<section class="section forms" id="forms">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow yellow">📝 Quick forms</span>
+      <h2>Forms &amp; <span class="hl">extras.</span></h2>
+      <p>Need more t-shirts or planning a birthday celebration at camp? Take care of it here.</p>
+    </div>
+    <div class="forms-grid">
+      <div class="form-card tshirt reveal">
+        <div class="fic">👕</div>
+        <h3>Buy More T-Shirts</h3>
+        <p>Campers receive their camp t-shirts at distribution day — need extras? Order additional t-shirts online anytime.</p>
+        <a href="https://marjcc.org/PATH-buy-tshirts" target="_blank" class="btn">Order T-Shirts →</a>
+      </div>
+      <div class="form-card bday reveal d1">
+        <div class="fic">🎂</div>
+        <h3>Birthday Celebration</h3>
+        <p>Celebrate your camper's special day at camp! Fill out the birthday celebration form to let us know.</p>
+        <a href="https://marjcc.org/PATH-birthday-form" target="_blank" class="btn">Birthday Form →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LUNCH MENU ═══════════ -->
+<section class="section lunch" id="lunch">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow coral">🍎 Fueling the fun</span>
+      <h2>Lunch <span class="hl">menu.</span></h2>
+      <p>Camp provides lunch daily, with all dietary needs and allergies accommodated.</p>
+    </div>
+    <div class="lunch-card reveal">
+      <div class="lic">🍽️</div>
+      <div>
+        <h3>This week's menu</h3>
+        <p>View the current weekly lunch menu, including vegetarian and allergy-friendly options. Updated each week of camp.</p>
+      </div>
+      <a href="https://marjcc.org/PATH-lunch-menu" target="_blank" class="btn dark">View Menu →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ QUICK LINKS (Policies + Staff Directory) ═══════════ -->
+<section class="section qlinks" id="qlinks">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">🔗 Good to have</span>
+      <h2>Policies &amp; <span class="hl">directory.</span></h2>
+      <p>The official documents and people behind your camper's summer.</p>
+    </div>
+    <div class="qlinks-grid">
+      <a href="https://marjcc.org/PATH-camp-policies" target="_blank" class="qlink c1 reveal"><div class="qic">📋</div><div><h4>Camp Policies</h4><p>Full policies, agreements &amp; what you accept at registration</p></div><span class="arrow">↗</span></a>
+      <a href="https://marjcc.org/PATH-staff-directory" target="_blank" class="qlink c2 reveal d1"><div class="qic">👥</div><div><h4>Staff Directory</h4><p>Meet the leadership team &amp; find the right contact</p></div><span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHAT WITH SUNNY (dedicated band) ═══════════ -->
+<section class="section sunny-band" id="sunny">
+  <div class="container sunny-band-inner">
+    <div class="reveal">
+      <span class="wa-num">💬 (305) 916-3358</span>
+      <h2>Got a question? <br>Chat with Sunny.</h2>
+      <p>Camp-related questions? Message Sunny on WhatsApp and get a fast, friendly answer during business hours. No question is too small.</p>
+      <a href="https://wa.me/message/MMN7EUES6WOUF1" target="_blank" class="btn">🐶 Chat with Sunny on WhatsApp →</a>
+    </div>
+    <div class="sb-art reveal d1">
+      <img src="assets/sunny-4.png" alt="Sunny the mascot">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECONDARY ZONE DIVIDER ═══════════ -->
+<div class="more-divider"><span>↓ More about camp life ↓</span></div>
+
+<!-- ═══════════ WHY CST (secondary — moved down) ═══════════ -->
+<section class="section why" id="why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow yellow">★ Why families choose us</span>
+      <h2>More than a camp — <span class="hl">a family.</span></h2>
+      <p>Every camper deserves a space to grow, connect, and shine. Here's what makes a summer at Camp Sol Taplin unforgettable.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card c1 reveal"><div class="emoji">🌟</div><h3>Belonging</h3><p>Every camper is seen, every camper belongs, and every camper has someone in their corner from day one.</p></div>
+      <div class="why-card c2 reveal d1"><div class="emoji">🎭</div><h3>Non-stop fun</h3><p>Color War, themed weeks, Crazy Wednesday, Spirit Friday — every day brings something new and exciting.</p></div>
+      <div class="why-card c3 reveal d2"><div class="emoji">🌱</div><h3>Whole-child growth</h3><p>We nurture mental, emotional, social, and physical wellbeing through a rich variety of activities.</p></div>
+      <div class="why-card c4 reveal"><div class="emoji">✡️</div><h3>Jewish life &amp; Israel</h3><p>From Shabbat to <em>tikkun olam</em>, campers embrace their heritage and connection to Israel with pride.</p></div>
+      <div class="why-card c5 reveal d1"><div class="emoji">🤸</div><h3>15+ programs</h3><p>Art, sports, dance, music, swim, Israeli culture, and more — age-appropriate every step of the way.</p></div>
+      <div class="why-card c6 reveal d2"><div class="emoji">💙</div><h3>Safety first</h3><p>Trained staff, the Rule of Three, active supervision, and clear emergency procedures — always.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ MOMENTS (secondary) ═══════════ -->
+<section class="section moments" id="moments">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow coral">📸 A peek at camp</span>
+      <h2>Moments that <span class="hl">make summer.</span></h2>
+      <p>From the pool to the art studio to flagpole — this is camp life. <span class="script">[FILL IN: replace tiles with real camp photos]</span></p>
+    </div>
+    <div class="moments-mosaic reveal">
+      <div class="mtile big"><img src="assets/sunny-leap.png" alt="Camp fun"><div class="cap">Every day, an adventure</div></div>
+      <div class="mtile"><img src="assets/sunny-4.png" alt="Camp"></div>
+      <div class="mtile tall"><img src="assets/sunny-run.png" alt="Camp"><div class="cap">Yalla, let's go!</div></div>
+      <div class="mtile"><img src="assets/sunny-5.png" alt="Camp"></div>
+      <div class="mtile"><img src="assets/sunny-6.png" alt="Camp"></div>
+      <div class="mtile"><img src="assets/sunny-carpool.png" alt="Carpool"></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ TRIBE ═══════════ -->
+<section class="section tribe" id="tribe">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Our cultural framework</span>
+      <h2>TRIBE.</h2>
+      <p>Five values. Five Hebrew words. One community. Hover each pillar to learn more.</p>
+    </div>
+    <div class="tribe-grid">
+      <div class="tcard t reveal"><div class="letter">T</div><div class="heb">Tikkun · תיקון</div><div class="en">Build &amp; Improve</div><div class="more">Helping without being asked. Acts of kindness — small actions, big impact.</div></div>
+      <div class="tcard r reveal d1"><div class="letter">R</div><div class="heb">Ruach · רוח</div><div class="en">Spirit &amp; Energy</div><div class="more">Singing at flagpole, dancing on Spirit Friday, trying new things with joy.</div></div>
+      <div class="tcard i reveal d2"><div class="letter">I</div><div class="heb">Israel · ישראל</div><div class="en">Identity &amp; Connection</div><div class="more">Hebrew words, Israeli music &amp; games, pride in being part of <em>Am Yisrael</em>.</div></div>
+      <div class="tcard b reveal d3"><div class="letter">B</div><div class="heb">Bayit · בית</div><div class="en">Home &amp; Belonging</div><div class="more">Counselors greeting every camper by name. Camp as a second home.</div></div>
+      <div class="tcard e reveal d4"><div class="letter">E</div><div class="heb">Echad · אחד</div><div class="en">One Community</div><div class="more">Compete fiercely, shake hands sincerely. One camp, one team.</div></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ A WEEK ═══════════ -->
+<section class="section week" id="week">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow green">The rhythm of camp</span>
+      <h2>A day at <span class="hl">camp.</span></h2>
+      <p>Predictable enough to feel safe. Surprising enough to feel alive. Scroll the timeline →</p>
+    </div>
+    <div class="tl-wrap reveal">
+      <div class="tl">
+        <div class="tl-day c-sky"><div class="tl-time">7:30 AM</div><div class="tl-dot"></div><div class="tl-card"><h4>Kid Connection</h4><p>Morning Care for early drop-off (optional).</p></div></div>
+        <div class="tl-day c-yel"><div class="tl-time">8:30–9:00</div><div class="tl-dot"></div><div class="tl-card"><h4>Carpool Drop-off</h4><p>Three locations organized by camp.</p></div></div>
+        <div class="tl-day c-grn"><div class="tl-time">9:00 AM</div><div class="tl-dot"></div><div class="tl-card"><h4>Flagpole</h4><p>The whole camp gathers, sings, gets fired up.</p></div></div>
+        <div class="tl-day c-red"><div class="tl-time">10:00 AM</div><div class="tl-dot"></div><div class="tl-card"><h4>Morning Rotations</h4><p>Art, sports, dance, swim, specialty programs.</p></div></div>
+        <div class="tl-day c-nav"><div class="tl-time">12:30 PM</div><div class="tl-dot"></div><div class="tl-card"><h4>Lunch</h4><p>Provided by camp. All dietary needs met.</p></div></div>
+        <div class="tl-day c-grn"><div class="tl-time">1:30 PM</div><div class="tl-dot"></div><div class="tl-card"><h4>Afternoon Rotations</h4><p>More activities, more swim, more friends.</p></div></div>
+        <div class="tl-day c-cor"><div class="tl-time">3:00 PM</div><div class="tl-dot"></div><div class="tl-card"><h4>Group Closing</h4><p>Wrap up, share TRIBE moments.</p></div></div>
+        <div class="tl-day c-yel"><div class="tl-time">3:30–4:00</div><div class="tl-dot"></div><div class="tl-card"><h4>Carpool Pickup</h4><p>Kid Connection runs until 6:00 PM.</p></div></div>
+      </div>
+    </div>
+    <div class="special">
+      <div class="sp reveal"><div class="ic">🎨</div><h4>Crazy Wednesday</h4><p>Themed dress-up, silly games, energy to eleven.</p></div>
+      <div class="sp reveal d1"><div class="ic">🎉</div><h4>Spirit Friday</h4><p>Color War cheers and end-of-week celebrations.</p></div>
+      <div class="sp reveal d2"><div class="ic">🕯️</div><h4>Shabbat</h4><p>A calm, joyful camp-wide Shabbat every Friday.</p></div>
+      <div class="sp reveal"><div class="ic">🚌</div><h4>Field Trips</h4><p>Off-site adventures all summer long.</p></div>
+      <div class="sp reveal d1"><div class="ic">⚔️</div><h4>Color War</h4><p>The legendary multi-day camp tradition.</p></div>
+      <div class="sp reveal d2"><div class="ic">🎭</div><h4>Theme Days</h4><p>Costumes, characters, and surprises.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ ACTIVITIES ═══════════ -->
+<section class="section acts" id="activities">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What your camper will do</span>
+      <h2>Activities &amp; <span class="hl">programs.</span></h2>
+      <p>A broad menu, age-appropriate every step of the way. Filter by category →</p>
+    </div>
+    <div class="filters reveal">
+      <button class="fpill active" data-f="all">All Programs</button>
+      <button class="fpill" data-f="creative">🎨 Creative</button>
+      <button class="fpill" data-f="active-cat">⚽ Active</button>
+      <button class="fpill" data-f="wellness">🧘 Wellness</button>
+      <button class="fpill" data-f="identity">🇮🇱 Israeli Culture</button>
+      <button class="fpill" data-f="tradition">🕯️ Jewish Life</button>
+      <button class="fpill" data-f="bonus">⭐ Themed Weeks</button>
+    </div>
+    <div class="acts-grid">
+      <div class="acard creative reveal" data-c="creative"><div class="lab">Creative</div><h4>Arts &amp; Performance</h4><p>Art · Dance · Music · Theater · Magic · Special Effects</p></div>
+      <div class="acard active-cat reveal d1" data-c="active-cat"><div class="lab">Active</div><h4>Sports &amp; Movement</h4><p>Basketball · Flag Football · Soccer · Tennis · Karate · Ninja Warrior · PE · Fitness</p></div>
+      <div class="acard wellness reveal d2" data-c="wellness"><div class="lab">Wellness</div><h4>Mind &amp; Body</h4><p>Yoga · Mindfulness · Swim</p></div>
+      <div class="acard identity reveal" data-c="identity"><div class="lab">Identity</div><h4>Israeli Culture</h4><p>Hebrew language · Israeli music &amp; games · culture &amp; story</p></div>
+      <div class="acard tradition reveal d1" data-c="tradition"><div class="lab">Tradition</div><h4>Shabbat &amp; Jewish Life</h4><p>Weekly Shabbat moments · Jewish values throughout the day</p></div>
+      <div class="acard bonus reveal d2" data-c="bonus"><div class="lab">Bonus</div><h4>Themed Weeks</h4><p>Color War · Spirit Days · Surprise themes</p></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ CODE OF CONDUCT ═══════════ -->
+<section class="section acc" id="conduct">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow coral">Policies &amp; expectations</span>
+      <h2>Code of <span class="hl">conduct.</span></h2>
+      <p>Clear expectations. Consistent enforcement. A safe, joyful camp for everyone.</p>
+    </div>
+    <div class="acc-list reveal">
+      <div class="acc-item open"><div class="acc-head"><div class="n">1</div><h4>Camper expectations</h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><ul><li>Respect staff, fellow campers, and camp property.</li><li>Follow instructions from counselors and unit leaders.</li><li>Stay with your group — never wander off.</li><li>Keep hands &amp; words kind. No bullying.</li><li>Camper cellphones not permitted during camp.</li><li>No fireworks, weapons, or toy weapons.</li><li>No drugs, tobacco, alcohol, or intoxicants.</li><li>Inclusion matters — everyone in.</li></ul></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">2</div><h4>Zero tolerance <span class="aca-tag">AD.16</span></h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><ul><li>No corporal punishment — ever.</li><li>No illegal drugs, underage drinking, or weapons.</li><li>No smoking or vaping on MARJCC property.</li><li>No personal animals (service animals welcome under ADA).</li></ul></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">3</div><h4>Behavior support <span class="aca-tag">AD.13</span></h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>When a camper struggles, our trained staff respond with patience first. If patterns persist, our behavioral specialist conducts an observation and oversees a behavior plan with staff, you, and your child — together.</p></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">4</div><h4>Photo &amp; video release</h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>By signing registration, you grant MARJCC the right to photograph campers and use the images in publicity and web content. To opt out, notify Camp Reception in writing before camp begins.</p></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">5</div><h4>Activities &amp; trips <span class="aca-tag">AD.33.2</span></h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>By e-signing the registration form, parents/guardians permit their child to participate in all camp activities, including planned and unplanned trips using different modes of transportation.</p></div></div></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ COMMUNICATION ═══════════ -->
+<section class="section comm" id="communication">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Staying in touch all summer</span>
+      <h2>Communication &amp; <span class="hl">photos.</span></h2>
+      <p>Daily glimpses, real-time updates, real human contact.</p>
+    </div>
+    <div class="comm-grid">
+      <div class="ccard sky reveal"><div class="ic">📱</div><div class="lab">Daily photos</div><h4>Campanion App</h4><p>Daily photos from your Unit Leader, push notifications, SMS opt-in, forms.</p><a href="#">Download →</a></div>
+      <div class="ccard yellow reveal d1"><div class="ic">💬</div><div class="lab">Quick questions</div><h4>Chat with Sunny</h4><p>WhatsApp Sunny at (305) 916-3358 during business hours.</p><a href="https://wa.me/message/MMN7EUES6WOUF1" target="_blank">Open WhatsApp →</a></div>
+      <div class="ccard green reveal d2"><div class="ic">✉️</div><div class="lab">Your unit leader</div><h4>Direct email</h4><p>Each group has its own Unit Leader email. You'll get yours at Orientation.</p></div>
+      <div class="ccard navy reveal d3"><div class="ic">📞</div><div class="lab">Camp reception</div><h4>Phone &amp; email</h4><p>For urgent same-day matters and admin questions.</p><a href="tel:3059324200">305.932.4200 x110 →</a></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ DATES ═══════════ -->
+<section class="section dates" id="dates">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow green">Mark your calendar</span>
+      <h2>Important <span class="hl">dates.</span></h2>
+      <p>A summer of nine weeks. A handful of dates that matter most.</p>
+    </div>
+    <div class="dt-line">
+      <div class="dt pre reveal"><div class="when">May 28<small>Wednesday</small></div><div class="what"><strong>Parents Orientation</strong>Meet your Unit Leader, see the campus.</div><span class="tag">Required</span></div>
+      <div class="dt pre reveal d1"><div class="when">May 31<small>Saturday</small></div><div class="what"><strong>Spring discount deadline</strong>Last day for spring pricing.</div><span class="tag">Pricing</span></div>
+      <div class="dt pre reveal d2"><div class="when">Jun 3<small>4–7:30 PM · Gym</small></div><div class="what"><strong>T-Shirt Distribution Day</strong>Pick up t-shirts, hang tag &amp; carpool form.</div><span class="tag">Required</span></div>
+      <div class="dt start reveal"><div class="when">Jun 8<small>Monday</small></div><div class="what"><strong>First day of camp!</strong>Summer 2026 begins. Carpool 8:30–9:00 AM.</div><span class="tag">Day 1</span></div>
+      <div class="dt holiday reveal d1"><div class="when">Jul 3<small>[ASSUMPTION]</small></div><div class="what"><strong>Independence Day observed</strong>Camp closed — please verify.</div><span class="tag">Holiday</span></div>
+      <div class="dt end reveal d2"><div class="when">Aug 7<small>Friday</small></div><div class="what"><strong>Last day of camp</strong>Summer 2026 ends.</div><span class="tag">Final day</span></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section acc" id="faq" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow yellow">Good questions</span>
+      <h2>Frequently <span class="hl">asked.</span></h2>
+      <p>The things families ask us most. Don't see your question? Chat with Sunny.</p>
+    </div>
+    <div class="acc-list reveal" style="margin-inline:auto">
+      <div class="acc-item open"><div class="acc-head"><div class="n">?</div><h4>What ages does camp serve?</h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>Camp Sol Taplin welcomes campers from age 2 through 15, with age-appropriate groups and programming for each stage. [FILL IN: confirm exact age ranges per camp/unit]</p></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">?</div><h4>Do you provide lunch?</h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>Yes — lunch is provided by camp, and all dietary needs and allergies are accommodated. We're an allergy-aware camp. [FILL IN: confirm which camps/ages include lunch]</p></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">?</div><h4>What are the camp hours?</h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>Carpool drop-off is 8:30–9:00 AM, pickup is 3:30–4:00 PM. Extended care (Kid Connection) is available 7:30–8:30 AM and 4:00–6:00 PM for an additional fee.</p></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">?</div><h4>Is there extended care?</h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>Yes! Kid Connection offers morning care (7:30–8:30 AM) and afternoon care (4:00–6:00 PM, until 5:30 PM Fridays). Registration is separate and space is limited.</p></div></div></div>
+      <div class="acc-item"><div class="acc-head"><div class="n">?</div><h4>How do I register?</h4><div class="ar">▼</div></div><div class="acc-body"><div class="acc-bin"><p>Register online through our CampMinder portal. Spring pricing ends May 31, 2026. <a href="https://marjcc.org/campregistration">Start your registration →</a></p></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section class="section finalcta">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow yellow" style="background:rgba(255,255,255,.15);color:#fff">See you this summer</span>
+      <h2>Ready for the best<br><span class="life">summer ever?</span></h2>
+      <p>Join the Camp Sol Taplin family for Summer 2026. Spring pricing ends May 31.</p>
+      <div class="cta-row">
+        <a href="https://marjcc.org/campregistration" class="btn primary">Register Now →</a>
+        <a href="#" class="btn ghost">📄 Download PDF Guide</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><img src="assets/logo-white.png" alt="MARJCC"> Camp Sol Taplin</div>
+        <p class="tag">A MARJCC Summer Camp · Aventura, Florida.<br>Inclusion &amp; Joy, since day one.</p>
+      </div>
+      <div><h5>Camp Life</h5><ul><li><a href="#pack">What to Bring</a></li><li><a href="#carpool">Carpool</a></li><li><a href="#campanion">Get Campanion</a></li><li><a href="#themes">Weekly Themes</a></li><li><a href="#lunch">Lunch Menu</a></li></ul></div>
+      <div><h5>Get in touch</h5><ul><li><a href="tel:3059324200">305.932.4200 x110</a></li><li><a href="mailto:campsoltaplin@marjcc.org">campsoltaplin@marjcc.org</a></li><li><a href="https://wa.me/message/MMN7EUES6WOUF1">WhatsApp Sunny</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="https://marjcc.org/campregistration">Register</a></li><li><a href="#forms">Forms</a></li><li><a href="https://marjcc.org/PATH-camp-policies">Camp Policies</a></li><li><a href="/Camp_Life_Parents_Handbook_2026.pdf" target="_blank">Download PDF</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 MARJCC · All rights reserved.</span><span>Camp Life · Summer 2026</span></div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/message/MMN7EUES6WOUF1" target="_blank" class="fab"><span class="ic">🐶</span><span>Chat with Sunny</span></a>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-cta">
+  <a href="https://marjcc.org/campregistration" class="btn primary">Register for Summer 2026 →</a>
+</div>
+
+<script>
+// Nav scroll state
+const nav=document.getElementById('nav'),sp=document.getElementById('scrollProgress');
+function onScroll(){
+  nav.classList.toggle('scrolled',scrollY>40);
+  const max=document.documentElement.scrollHeight-innerHeight;
+  sp.style.width=(max>0?scrollY/max*100:0)+'%';
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// Reveal
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Carpool tabs
+document.querySelectorAll('.cp-tab').forEach(t=>t.addEventListener('click',()=>{
+  const id=t.dataset.loc;
+  document.querySelectorAll('.cp-tab').forEach(x=>x.classList.toggle('active',x===t));
+  document.querySelectorAll('.cp-detail').forEach(d=>d.classList.toggle('active',d.dataset.loc===id));
+}));
+
+// Accordions
+document.querySelectorAll('.acc-head').forEach(h=>h.addEventListener('click',()=>{
+  const it=h.parentElement,wasOpen=it.classList.contains('open');
+  // only close siblings within same list
+  it.closest('.acc-list').querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)it.classList.add('open');
+}));
+
+// Activity filter
+document.querySelectorAll('.fpill').forEach(p=>p.addEventListener('click',()=>{
+  const f=p.dataset.f;
+  document.querySelectorAll('.fpill').forEach(x=>x.classList.toggle('active',x===p));
+  document.querySelectorAll('.acard').forEach(c=>c.classList.toggle('hide',!(f==='all'||c.dataset.c===f)));
+}));
+
+// Pack list + localStorage
+(function(){
+  const KEY='camplife_pack_v1',boxes=document.querySelectorAll('#bringList input'),fill=document.getElementById('bFill'),pct=document.getElementById('bPct');
+  try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');boxes.forEach(b=>{if(s[b.id])b.checked=true;});}catch(e){}
+  function upd(){let c=0;const s={};boxes.forEach(b=>{if(b.checked){c++;s[b.id]=true;}});const p=Math.round(c/boxes.length*100);fill.style.width=p+'%';pct.textContent=p+'%';try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}}
+  boxes.forEach(b=>b.addEventListener('change',upd));upd();
+})();
+
+// Mobile menu (basic toggle - scroll to anchor via native)
+document.querySelector('.nav-toggle')?.addEventListener('click',()=>{
+  document.querySelector('.nav-links').style.display=
+    getComputedStyle(document.querySelector('.nav-links')).display==='none'?'flex':'none';
+});
+</script>
+
+</body>
+</html>

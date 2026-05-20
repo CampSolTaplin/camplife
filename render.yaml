@@ -1,0 +1,20 @@
+# Render Blueprint — Camp Life landing (Astro static site)
+# Docs: https://render.com/docs/blueprint-spec
+# Once pushed to GitHub, in Render: New → Blueprint → select this repo.
+services:
+  - type: web
+    name: camplife
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    autoDeploy: true
+    # After deploy, add a custom domain (e.g. camplife.marjcc.org) in the
+    # Render dashboard and create a CNAME record pointing to the Render URL.
+    # Optional security headers:
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
