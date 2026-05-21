@@ -46,3 +46,92 @@ document.querySelector('.nav-toggle')?.addEventListener('click',()=>{
   document.querySelector('.nav-links').style.display=
     getComputedStyle(document.querySelector('.nav-links')).display==='none'?'flex':'none';
 });
+
+// Carpool route animation — one cycle per .carpool-anim instance
+document.querySelectorAll('.carpool-anim').forEach((wrap)=>{
+  const entry = wrap.querySelector('.route-entry');
+  const exit  = wrap.querySelector('.route-exit');
+  const car   = wrap.querySelector('.car');
+  const drop  = wrap.querySelector('.point-dropoff');
+  const gate  = wrap.querySelector('.point-gate');
+  const lDrop = wrap.querySelector('.label-dropoff');
+  const lGate = wrap.querySelector('.label-gate');
+  if(!entry || !exit || !car) return;
+
+  const lenIn  = entry.getTotalLength();
+  const lenOut = exit.getTotalLength();
+  entry.style.strokeDasharray  = lenIn;
+  exit.style.strokeDasharray   = lenOut;
+  entry.style.strokeDashoffset = lenIn;
+  exit.style.strokeDashoffset  = lenOut;
+
+  const DUR_IN=6000, PAUSE_DROP=1600, DUR_OUT=5000, PAUSE_GATE=1600, GAP=800;
+  const CYCLE = DUR_IN + PAUSE_DROP + DUR_OUT + PAUSE_GATE + GAP;
+
+  function ease(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  function setCar(path, prog){
+    const L = path.getTotalLength();
+    const p = path.getPointAtLength(prog * L);
+    car.setAttribute('transform', 'translate('+p.x.toFixed(1)+' '+p.y.toFixed(1)+')');
+  }
+
+  setCar(entry, 0);
+
+  let start = null;
+  let running = false;
+  function loop(ts){
+    if(!running) return;
+    if(!start) start = ts;
+    const e = (ts - start) % CYCLE;
+
+    if(e < DUR_IN){
+      const t = ease(e / DUR_IN);
+      entry.style.strokeDashoffset = String(lenIn * (1 - t));
+      exit.style.strokeDashoffset = String(lenOut);
+      car.classList.add('visible');
+      drop.classList.remove('visible');
+      gate.classList.remove('visible');
+      lDrop.classList.remove('visible');
+      lGate.classList.remove('visible');
+      setCar(entry, t);
+    } else if(e < DUR_IN + PAUSE_DROP){
+      entry.style.strokeDashoffset = '0';
+      drop.classList.add('visible');
+      lDrop.classList.add('visible');
+      setCar(entry, 1);
+    } else if(e < DUR_IN + PAUSE_DROP + DUR_OUT){
+      const t = ease((e - DUR_IN - PAUSE_DROP) / DUR_OUT);
+      entry.style.strokeDashoffset = '0';
+      exit.style.strokeDashoffset = String(lenOut * (1 - t));
+      drop.classList.add('visible');
+      lDrop.classList.add('visible');
+      setCar(exit, t);
+    } else if(e < DUR_IN + PAUSE_DROP + DUR_OUT + PAUSE_GATE){
+      exit.style.strokeDashoffset = '0';
+      gate.classList.add('visible');
+      lGate.classList.add('visible');
+      setCar(exit, 1);
+    } else {
+      entry.style.strokeDashoffset = String(lenIn);
+      exit.style.strokeDashoffset = String(lenOut);
+      drop.classList.remove('visible');
+      gate.classList.remove('visible');
+      lDrop.classList.remove('visible');
+      lGate.classList.remove('visible');
+      car.classList.remove('visible');
+    }
+    requestAnimationFrame(loop);
+  }
+
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting && !running){
+        running = true; start = null;
+        requestAnimationFrame(loop);
+      } else if(!en.isIntersecting){
+        running = false;
+      }
+    });
+  }, { threshold: 0.15 });
+  obs.observe(wrap);
+});

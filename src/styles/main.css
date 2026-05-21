@@ -307,6 +307,18 @@ h4{font-size:19px;font-weight:700;letter-spacing:-.01em}
 .cp-map.cp-map-img{aspect-ratio:5/3.5;background:transparent;place-items:stretch}
 .cp-map.cp-map-img::before{display:none}
 .cp-map.cp-map-img img{width:100%;height:100%;object-fit:cover;display:block}
+.cp-map.cp-map-anim{aspect-ratio:auto;background:transparent;place-items:stretch;overflow:visible;padding:0}
+.cp-map.cp-map-anim::before{display:none}
+.carpool-anim{position:relative;width:100%;border-radius:var(--radius-sm);overflow:hidden;background:#0E235C;line-height:0}
+.carpool-anim .bg{display:block;width:100%;height:auto}
+.carpool-anim svg{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.carpool-anim .route{stroke-dasharray:var(--len,1);stroke-dashoffset:var(--len,1);filter:drop-shadow(0 2px 3px rgba(0,0,0,.45))}
+.carpool-anim .point{filter:drop-shadow(0 4px 8px rgba(0,0,0,.5));opacity:0;transition:opacity .35s ease}
+.carpool-anim .point.visible{opacity:1}
+.carpool-anim .label{opacity:0;transition:opacity .3s ease}
+.carpool-anim .label.visible{opacity:1}
+.carpool-anim .car{opacity:0;filter:drop-shadow(0 4px 8px rgba(0,0,0,.55))}
+.carpool-anim .car.visible{opacity:1}
 .cp-legend{display:flex;flex-wrap:wrap;gap:14px 18px;margin-bottom:22px;padding:14px 18px;background:#FAFBFD;border:1px solid var(--line);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-soft);font-weight:600}
 .cp-legend span{display:inline-flex;align-items:center;gap:7px}
 .cp-legend i{display:inline-block;width:18px;height:5px;border-radius:2px}

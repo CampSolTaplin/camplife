@@ -1,0 +1,53 @@
+---
+export interface Props {
+  baseImage: string;
+  alt: string;
+  viewBoxW: number;
+  viewBoxH: number;
+  entryD: string;
+  exitD: string;
+  entryColor: string;
+  gate: { x: number; y: number };
+  dropoff: { x: number; y: number };
+  gateLabel?: { dx: number; dy: number; anchor?: 'start' | 'middle' | 'end' };
+  dropoffLabel?: { dx: number; dy: number; anchor?: 'start' | 'middle' | 'end' };
+}
+
+const {
+  baseImage,
+  alt,
+  viewBoxW,
+  viewBoxH,
+  entryD,
+  exitD,
+  entryColor,
+  gate,
+  dropoff,
+  gateLabel = { dx: 38, dy: 6, anchor: 'start' },
+  dropoffLabel = { dx: 38, dy: 6, anchor: 'start' },
+} = Astro.props;
+---
+<div class="carpool-anim">
+  <img class="bg" src={baseImage} alt={alt} loading="lazy" />
+  <svg viewBox={`0 0 ${viewBoxW} ${viewBoxH}`} preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <path class="route route-entry" d={entryD} stroke={entryColor} stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path class="route route-exit" d={exitD} stroke="#FF8A1F" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <circle class="point point-dropoff" cx={dropoff.x} cy={dropoff.y} r="20" fill="#FFC107" stroke="#fff" stroke-width="4" />
+    <circle class="point point-gate" cx={gate.x} cy={gate.y} r="20" fill="#1FB6B6" stroke="#fff" stroke-width="4" />
+
+    <g class="label label-dropoff" transform={`translate(${dropoff.x + dropoffLabel.dx} ${dropoff.y + dropoffLabel.dy})`}>
+      <rect x="-6" y="-22" width="118" height="32" rx="8" fill="#1B3A8C" />
+      <text x="53" y="0" text-anchor="middle" fill="#fff" font-weight="800" font-size="18" font-family="'Plus Jakarta Sans',system-ui,sans-serif">DROP OFF</text>
+    </g>
+    <g class="label label-gate" transform={`translate(${gate.x + gateLabel.dx} ${gate.y + gateLabel.dy})`}>
+      <rect x="-6" y="-22" width="76" height="32" rx="8" fill="#1FB6B6" />
+      <text x="32" y="0" text-anchor="middle" fill="#fff" font-weight="800" font-size="18" font-family="'Plus Jakarta Sans',system-ui,sans-serif">GATE</text>
+    </g>
+
+    <g class="car">
+      <circle r="14" fill="#1B3A8C" stroke="#fff" stroke-width="3" />
+      <text y="5" text-anchor="middle" fill="#fff" font-weight="900" font-size="14">🚗</text>
+    </g>
+  </svg>
+</div>
