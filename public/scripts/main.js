@@ -72,7 +72,7 @@ document.querySelectorAll('.carpool-anim').forEach((wrap)=>{
   const PAUSE_DROP=1800, PAUSE_GATE=1800, GAP=600;
   const CYCLE = DUR_IN + PAUSE_DROP + DUR_OUT + PAUSE_GATE + GAP;
 
-  function ease(t){ return t; }  // linear — constant speed
+  function ease(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }  // ease-in-out
   function setCar(path, prog){
     const L = path.getTotalLength();
     const p = path.getPointAtLength(prog * L);

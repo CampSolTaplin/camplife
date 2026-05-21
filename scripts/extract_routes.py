@@ -207,7 +207,7 @@ def save_debug(basePath, entry, exitP, drop, gate, name):
         draw.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r], fill=(255, 0, 0))
     img.save(DEBUG_DIR / name)
 
-def process(name, basePath, recoPath, entry_color_key):
+def process(name, basePath, recoPath, entry_color_key, entry_tol=80):
     print(f"\n=== {name} ===")
     base = load_rgb(basePath)
     reco = load_rgb(recoPath)
@@ -217,7 +217,7 @@ def process(name, basePath, recoPath, entry_color_key):
     print(f"  drop {drop}  gate {gate}")
 
     # Entry: walk starting from the pixel nearest the gate
-    entry, n_e = best_route(base, reco, [COLORS[entry_color_key]], anchor=gate)
+    entry, n_e = best_route(base, reco, [COLORS[entry_color_key]], anchor=gate, color_tol=entry_tol)
     print(f"  entry: comp={n_e}  walked={len(entry) if entry else 0}")
     # Exit: walk starting from the pixel nearest the drop
     exitP, n_x = best_route(base, reco, [COLORS["exit_orange1"], COLORS["exit_orange2"]], anchor=drop)
@@ -252,7 +252,7 @@ def main():
         CARPOOLS_DIR/"Hillel Carpool Recorrido.png", "hillel_red")
     r["savage"] = process("savage",
         CARPOOLS_DIR/"Savage Playground BASE.png",
-        CARPOOLS_DIR/"Savage Playground Recorrido.png", "playground_g")
+        CARPOOLS_DIR/"Savage Playground Recorrido.png", "playground_g", entry_tol=45)
     r["eca"] = process("eca",
         CARPOOLS_DIR/"ECA CARPOOL BASE.png",
         CARPOOLS_DIR/"ECA CARPOOL Recorrido.png", "eca_pink")
