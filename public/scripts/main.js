@@ -65,10 +65,14 @@ document.querySelectorAll('.carpool-anim').forEach((wrap)=>{
   entry.style.strokeDashoffset = lenIn;
   exit.style.strokeDashoffset  = lenOut;
 
-  const DUR_IN=6000, PAUSE_DROP=1600, DUR_OUT=5000, PAUSE_GATE=1600, GAP=800;
+  // Constant-speed: longer segment => longer duration. ~140 px/sec.
+  const PX_PER_SEC = 140;
+  const DUR_IN  = Math.max(4000, Math.min(14000, Math.round(lenIn  / PX_PER_SEC * 1000)));
+  const DUR_OUT = Math.max(4000, Math.min(14000, Math.round(lenOut / PX_PER_SEC * 1000)));
+  const PAUSE_DROP=1800, PAUSE_GATE=1800, GAP=600;
   const CYCLE = DUR_IN + PAUSE_DROP + DUR_OUT + PAUSE_GATE + GAP;
 
-  function ease(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  function ease(t){ return t; }  // linear — constant speed
   function setCar(path, prog){
     const L = path.getTotalLength();
     const p = path.getPointAtLength(prog * L);
