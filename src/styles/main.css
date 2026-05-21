@@ -502,14 +502,12 @@ h4{font-size:19px;font-weight:700;letter-spacing:-.01em}
 .store-btn .st{text-align:left;line-height:1.1}
 .store-btn .st small{display:block;font-size:10px;opacity:.8;font-weight:500}
 .store-btn .st b{font-size:16px;font-weight:700}
-.camp-visual{background:linear-gradient(150deg,var(--sky),var(--navy));border-radius:var(--radius-lg);padding:40px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.camp-visual{background:linear-gradient(150deg,var(--sky),var(--navy));border-radius:var(--radius-lg);padding:36px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow);min-height:380px}
 .camp-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(255,193,7,.3),transparent 50%)}
-.camp-visual .phone{width:180px;height:340px;background:#fff;border-radius:28px;margin:0 auto;box-shadow:0 20px 50px rgba(0,0,0,.3);position:relative;border:8px solid #0E235C;overflow:hidden}
-.camp-visual .phone .scr{position:absolute;inset:0;background:linear-gradient(160deg,var(--sky-soft),#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px}
-.camp-visual .phone .scr .logo-c{width:60px;height:60px;border-radius:16px;background:var(--sky);display:grid;place-items:center;font-size:30px}
-.camp-visual .phone .scr b{font-family:'Fraunces',serif;color:var(--navy);font-size:18px}
-.camp-visual .phone .scr .ph-photo{width:100%;height:60px;border-radius:10px;background:linear-gradient(120deg,var(--yellow-soft),var(--sky-soft))}
-.camp-visual .cap{color:#fff;font-family:'Caveat',cursive;font-size:24px;margin-top:20px;position:relative}
+.camp-visual .app-shot{width:80%;max-width:300px;margin:0 auto;display:block;border-radius:14px;position:relative;z-index:1;filter:drop-shadow(0 18px 30px rgba(0,0,0,.28))}
+.camp-visual .push-shot{position:absolute;bottom:78px;right:6%;width:36%;max-width:150px;border-radius:14px;box-shadow:0 16px 32px rgba(0,0,0,.4);transform:rotate(6deg);z-index:2;background:#fff}
+.camp-visual .cap{color:#fff;font-family:'Caveat',cursive;font-size:24px;margin-top:20px;position:relative;z-index:1}
+.campanion-brand{height:38px;width:auto;margin-bottom:14px;display:block}
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    WEEKLY THEMES
@@ -613,6 +611,7 @@ h4{font-size:19px;font-weight:700;letter-spacing:-.01em}
   .cp-windows,.pack-grid{grid-template-columns:1fr}
   .carpool-head{grid-template-columns:1fr}
   .cp-early-head .time{margin-left:0;width:100%}
+  .camp-visual .push-shot{display:none}
   .cp-detail.active{grid-template-columns:1fr}
   .steps,.special{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
