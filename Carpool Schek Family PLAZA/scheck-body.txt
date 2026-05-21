@@ -1,0 +1,61 @@
+
+<div class="stage">
+<svg viewBox="0 0 900 456" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <path id="rIn"  d="M 786.0 327.6 L 564.0 326.4 L 396.0 327.6 L 333.6 324.0 L 331.2 216.0 L 328.8 84.0 L 324.0 55.2 L 252.0 52.8 L 141.6 55.2 L 138.0 156.0 L 135.6 276.0 L 138.0 333.6" fill="none" stroke="#0A57E0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+  <path id="rOut" d="M 144.0 360.0 L 324.0 362.4 L 564.0 362.4 L 792.0 361.2" fill="none" stroke="#E51E1E" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+
+  <g transform="translate(786.0 327.6)">
+    <circle r="13" fill="#0A57E0" stroke="#fff" stroke-width="3"/>
+    <rect x="-92" y="-44" width="84" height="26" rx="6" fill="#0A57E0"/>
+    <text x="-50" y="-26" text-anchor="middle" class="lbl" fill="#fff">Gate</text>
+  </g>
+  <g transform="translate(138.0 336.0)">
+    <circle r="13" fill="#FFC107" stroke="#fff" stroke-width="3"/>
+    <rect x="-8" y="18" width="120" height="26" rx="6" fill="#1B3A8C"/>
+    <text x="52" y="36" text-anchor="middle" class="lbl" fill="#fff">Drop-off</text>
+  </g>
+
+  <g id="carIn"><g transform="rotate(0)">
+    <rect x="-20" y="-12" width="40" height="24" rx="6" fill="#0A57E0" stroke="#063a99" stroke-width="2"/>
+    <rect x="-8" y="-8" width="16" height="16" rx="3" fill="#CFE6FF"/>
+    <circle cx="-12" cy="12" r="4.5" fill="#111"/><circle cx="12" cy="12" r="4.5" fill="#111"/>
+    <circle cx="-12" cy="-12" r="4.5" fill="#111"/><circle cx="12" cy="-12" r="4.5" fill="#111"/>
+  </g></g>
+  <g id="carOut"><g transform="rotate(0)">
+    <rect x="-20" y="-12" width="40" height="24" rx="6" fill="#E51E1E" stroke="#9c1414" stroke-width="2"/>
+    <rect x="-8" y="-8" width="16" height="16" rx="3" fill="#FFD6D6"/>
+    <circle cx="-12" cy="12" r="4.5" fill="#111"/><circle cx="12" cy="12" r="4.5" fill="#111"/>
+    <circle cx="-12" cy="-12" r="4.5" fill="#111"/><circle cx="12" cy="-12" r="4.5" fill="#111"/>
+  </g></g>
+</svg>
+</div>
+
+<script>
+(function(){
+  var rIn=document.getElementById('rIn'), rOut=document.getElementById('rOut');
+  var carIn=document.getElementById('carIn'), carInG=carIn.querySelector('g');
+  var carOut=document.getElementById('carOut'), carOutG=carOut.querySelector('g');
+  var DUR_IN=7000, PAUSE=1400, DUR_OUT=4500, GAP=900;
+  var start=null;
+  function place(path, car, carG, prog){
+    var L=path.getTotalLength(), len=prog*L;
+    var pt=path.getPointAtLength(len), ah=path.getPointAtLength(Math.min(len+1,L));
+    var ang=Math.atan2(ah.y-pt.y, ah.x-pt.x)*180/Math.PI;
+    car.setAttribute('transform','translate('+pt.x.toFixed(1)+' '+pt.y.toFixed(1)+')');
+    carG.setAttribute('transform','rotate('+ang.toFixed(1)+')');
+  }
+  function ease(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  place(rIn, carIn, carInG, 0); carOut.setAttribute('opacity','0'); place(rOut, carOut, carOutG, 0);
+  var CYCLE=DUR_IN+PAUSE+DUR_OUT+GAP;
+  function loop(ts){
+    if(!start) start=ts;
+    var e=(ts-start)%CYCLE;
+    if(e<DUR_IN){ carIn.setAttribute('opacity','1'); place(rIn,carIn,carInG,ease(e/DUR_IN)); carOut.setAttribute('opacity','0'); }
+    else if(e<DUR_IN+PAUSE){ carIn.setAttribute('opacity','1'); place(rIn,carIn,carInG,1); carOut.setAttribute('opacity','0'); }
+    else if(e<DUR_IN+PAUSE+DUR_OUT){ carIn.setAttribute('opacity','0'); carOut.setAttribute('opacity','1'); place(rOut,carOut,carOutG,ease((e-DUR_IN-PAUSE)/DUR_OUT)); }
+    else { carIn.setAttribute('opacity','0'); carOut.setAttribute('opacity','1'); place(rOut,carOut,carOutG,1); }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
