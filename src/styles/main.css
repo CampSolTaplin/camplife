@@ -312,7 +312,7 @@ h4{font-size:19px;font-weight:700;letter-spacing:-.01em}
 .carpool-anim{position:relative;width:100%;border-radius:var(--radius-sm);overflow:hidden;background:#0E235C;line-height:0}
 .carpool-anim .bg{display:block;width:100%;height:auto}
 .carpool-anim svg{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
-.carpool-anim .route{stroke-dasharray:var(--len,1);stroke-dashoffset:var(--len,1);filter:drop-shadow(0 2px 3px rgba(0,0,0,.45))}
+.carpool-anim .route{opacity:0;stroke-dasharray:var(--len,1);stroke-dashoffset:var(--len,1)}
 .carpool-anim .point{filter:drop-shadow(0 4px 8px rgba(0,0,0,.5));opacity:0;transition:opacity .35s ease}
 .carpool-anim .point.visible{opacity:1}
 .carpool-anim .label{opacity:0;transition:opacity .3s ease}
