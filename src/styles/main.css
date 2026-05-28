@@ -194,7 +194,7 @@ h4{font-size:19px;font-weight:700;letter-spacing:-.01em}
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    TRUST BAR (logos / accreditation strip)
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-.trustbar{background:#fff;padding:16px 0;border-bottom:1px solid var(--line)}
+.trustbar{background:#fff;padding:18px 0;border-bottom:1px solid var(--line);position:relative;z-index:6}
 .trustbar-inner{display:flex;align-items:center;justify-content:center;gap:clamp(20px,5vw,64px);flex-wrap:wrap}
 .trustbar .ti{display:flex;align-items:center;gap:11px;color:var(--ink-soft);font-weight:600;font-size:14.5px}
 .trustbar .ti .ic{width:42px;height:42px;border-radius:12px;background:var(--sky-soft);display:grid;place-items:center;font-size:20px}
@@ -477,7 +477,7 @@ h4{font-size:19px;font-weight:700;letter-spacing:-.01em}
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    QUICK ACCESS HUB â€” the 9 essentials
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-.hub{background:#fff;position:relative;z-index:5;margin-top:-40px}
+.hub{background:#fff;position:relative;z-index:5;margin-top:0}
 .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .hub-card{
   display:flex;align-items:center;gap:14px;
