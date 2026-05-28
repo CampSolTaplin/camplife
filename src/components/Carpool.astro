@@ -3,17 +3,12 @@ import CarpoolAnim from './CarpoolAnim.astro';
 ---
 <section class="section carpool" id="carpool">
   <div class="container">
-    <div class="carpool-head reveal">
-      <div class="section-head">
-        <span class="eyebrow">First &amp; last impression, every day</span>
-        <h2>Carpool &amp; <span class="hl">pickup.</span></h2>
-        <p>Three locations, two windows, one promise — your camper is safe and accounted for, every moment.</p>
-      </div>
-      <div class="carpool-art">
-        <img src="/assets/sunny-carpool2.png" alt="Sunny helping campers at carpool" loading="lazy" />
-      </div>
+    <div class="section-head reveal" style="margin-bottom:18px">
+      <span class="eyebrow">First &amp; last impression, every day</span>
+      <h2>Carpool &amp; <span class="hl">pickup.</span></h2>
+      <p>Three locations, two windows, one promise — your camper is safe and accounted for, every moment.</p>
     </div>
-    <div class="cp-windows">
+    <div class="cp-windows cp-with-art">
       <div class="cp-win morning reveal">
         <div class="lab">Morning Drop-off</div>
         <div class="time">8:30 – 9:00 AM</div>
@@ -24,7 +19,10 @@ import CarpoolAnim from './CarpoolAnim.astro';
           <li>Carpool is always at the location where your <strong>youngest sibling</strong> is registered</li>
         </ul>
       </div>
-      <div class="cp-win afternoon reveal d1">
+      <div class="cp-art-mid reveal d1">
+        <img src="/assets/sunny-carpool2.png" alt="Sunny helping campers at carpool" loading="lazy" />
+      </div>
+      <div class="cp-win afternoon reveal d2">
         <div class="lab">Afternoon Pickup</div>
         <div class="time">3:30 – 4:00 PM</div>
         <ul>
